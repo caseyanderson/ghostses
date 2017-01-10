@@ -5,17 +5,18 @@ takes some arbitrary text input, tokenizes into words, assigns parts of speech,
 finds only PARTSOFSPEECHWECAREABOUT and capitalizes said in original
 outputs contents to file
 
+list of parts of speech tags used in nltk: nltk.help.upenn_tagset()
+
 TODO:
 no space before first word!
 can i replace capitalization change with color change? will that show up in the text file?
-find list of parts of speech tags
 cleanup
 """
 
 import nltk
 import re
 
-filename = '/Users/mdp/Desktop/sebald_chapter_1_RoS.txt'
+filename = 'sebald_chapter_1_RoS.txt'
 f = open(filename, 'r')
 x =  f.read()
 
@@ -33,7 +34,7 @@ num = 0
 
 # this checks to see if a word is a part of speech we care about (looks at b) and, if so, capitalizes that word in the other list (a)
 for i in b:
-    if i == 'NN' or i == 'NNP':
+    if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
         a[num] = a[num].upper() # check to see if color can be set here rather than upper
     num = num + 1
 
@@ -53,7 +54,7 @@ for i in a:
 
 
 # opens the output file and writes the list there
-o = open("/Users/mdp/Desktop/sebald_output.txt", "w") # make a thing that adds which part of speech this is to the extension
+o = open("sebald_output.txt", "w") # make a thing that adds which part of speech this is to the extension
 o.write("".join(a))
 
 o.close()
