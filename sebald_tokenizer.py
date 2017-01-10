@@ -6,6 +6,7 @@ finds only PARTSOFSPEECHWECAREABOUT and capitalizes said in original
 outputs contents to file
 
 TODO:
+no space before first word!
 can i replace capitalization change with color change? will that show up in the text file?
 find list of parts of speech tags
 cleanup
