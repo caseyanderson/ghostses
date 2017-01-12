@@ -17,7 +17,7 @@ cleanup
 import nltk
 import re
 
-filename = 'sebald_chapter_1_RoS.txt'
+filename = 'corpus.txt'
 f = open(filename, 'r')
 x =  f.read()
 
