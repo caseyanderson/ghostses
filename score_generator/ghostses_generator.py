@@ -38,19 +38,20 @@ for i in b:
     if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
         a[num] = a[num].upper()
         #make html tags here
+        a[num] = "<span class='whitespace'> i</span>"
     num = num + 1
 
 
 # if list item does not match alphanumeric character-> no whitespace, else prepend with whitespace.
 #need to refactor this, shouldnt need monum...
-monum = 0
-
-for i in a:
-    if re.match("\W", i) is not None:
-        monum = monum + 1
-    else:
-        a[monum] = " " + i
-        monum = monum + 1
+# monum = 0
+#
+# for i in a:
+#     if re.match("\W", i) is not None:
+#         monum = monum + 1
+#     else:
+#         a[monum] = " " + i
+#         monum = monum + 1
 
 
 # opens the output file and writes the list there
