@@ -1,5 +1,5 @@
 """
-ghostses text preparer
+ghostses generator
 
 takes some arbitrary text input, tokenizes into words, assigns parts of speech,
 finds only PARTSOFSPEECHWECAREABOUT and capitalizes said in original
@@ -7,9 +7,10 @@ outputs contents to file
 
 list of parts of speech tags used in nltk: nltk.help.upenn_tagset()
 
+typesetting via html and css
+
 TODO:
 no space before first word!
-can i replace capitalization change with color change? will that show up in the text file?
 cleanup
 """
 
@@ -35,7 +36,8 @@ num = 0
 # this checks to see if a word is a part of speech we care about (looks at b) and, if so, capitalizes that word in the other list (a)
 for i in b:
     if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
-        a[num] = a[num].upper() # check to see if color can be set here rather than upper
+        a[num] = a[num].upper()
+        #make html tags here
     num = num + 1
 
 
@@ -45,16 +47,16 @@ monum = 0
 
 for i in a:
     if re.match("[,:;?\.()']", i) is not None:
-        print('no match at ' + str(monum) + ', moving on')
+        # print('no match at ' + str(monum) + ', moving on')
         monum = monum + 1
     else:
-        print('match at ' + str(monum))
+        # print('match at ' + str(monum))
         a[monum] = " " + i
         monum = monum + 1
 
 
 # opens the output file and writes the list there
-o = open("sebald_output.txt", "w") # make a thing that adds which part of speech this is to the extension
+o = open("ghostses_output.txt", "w") # make a thing that adds which part of speech this is to the extension
 o.write("".join(a))
 
 o.close()
