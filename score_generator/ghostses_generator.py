@@ -1,13 +1,15 @@
 """
 ghostses generator
 
-takes some arbitrary text input, tokenizes into words, assigns parts of speech,
-finds only PARTSOFSPEECHWECAREABOUT and capitalizes said in original
-outputs contents to file
+
+1. reads arbitrary text input
+2. tokenizes text into words (followed by quick spacing fix)
+3. assigns parts of speech
+4. finds parts of speech we care about and colors said in original
+5. everything else is invisible
+6. outputs contents to a file
 
 list of parts of speech tags used in nltk: nltk.help.upenn_tagset()
-
-typesetting via html and css
 
 TODO:
 no space before first word!
@@ -30,17 +32,43 @@ a,b = zip(*words)
 a = list(a)
 b = list(b)
 
-# this is a counter and should be refactored to not be necessary (see below)
+
+# if an item contains any non-alphanumeric characters it does not get prepended with a space
 num = 0
 
-# this checks to see if a word is a part of speech we care about (looks at b) and, if so, capitalizes that word in the other list (a)
-for i in b:
-    if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
-        a[num] = "<span class='noun'>" + " " + a[num] + "</span>"
+for i in a:
+    if re.match("\W", i) is not None:
         num = num + 1
     else:
-        a[num] = "<span class='whitespace'>" + " " + a[num] + "</span>"
+        a[num] = " " + a[num]
         num = num + 1
+
+monum = 0
+
+# colorizes text if it is a part of speech we care about, otherwise opacity of text is 0 (i.e. invisible)
+for i in b:
+    if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
+        a[monum] = "<span class='noun'>" + a[monum] + "</span>"
+        monum = monum + 1
+    else:
+        a[monum] = "<span class='whitespace'>" + a[monum] + "</span>"
+        monum = monum + 1
+
+# monum = 0
+#
+# for i in a:
+#     if re.pattern("[\W]", i) is not None:
+#         monum = monum + 1
+#     else:
+#         a[monum] = " " + a[monum]
+#         monum = monum + 1
+
+# monum = 0
+#
+# for i in a:
+#     if re.match("\W", i) is not None:
+#         monum = monum + 1
+
 
 # if list item does not match alphanumeric character-> no whitespace, else prepend with whitespace.
 #need to refactor this, shouldnt need monum...
