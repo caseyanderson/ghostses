@@ -41,12 +41,12 @@ for i in b:
     num = num + 1
 
 
-# if list item does not match punctuation-> no whitespace, else prepend with whitespace.
+# if list item does not match alphanumeric character-> no whitespace, else prepend with whitespace.
 #need to refactor this, shouldnt need monum...
 monum = 0
 
 for i in a:
-    if re.match("[,:;?'\.\)\(]", i) is not None:
+    if re.match("\W", i) is not None:
         monum = monum + 1
     else:
         a[monum] = " " + i
