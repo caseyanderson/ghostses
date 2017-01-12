@@ -46,11 +46,9 @@ for i in b:
 monum = 0
 
 for i in a:
-    if re.match("[,:;?\.()']", i) is not None:
-        # print('no match at ' + str(monum) + ', moving on')
+    if re.match("[,:;?'\.\)\(]", i) is not None:
         monum = monum + 1
     else:
-        # print('match at ' + str(monum))
         a[monum] = " " + i
         monum = monum + 1
 
