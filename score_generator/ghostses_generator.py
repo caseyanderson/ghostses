@@ -36,11 +36,11 @@ num = 0
 # this checks to see if a word is a part of speech we care about (looks at b) and, if so, capitalizes that word in the other list (a)
 for i in b:
     if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
-        a[num] = a[num].upper()
-        #make html tags here
-        a[num] = "<span class='whitespace'> i</span>"
-    num = num + 1
-
+        a[num] = "<span class='noun'>" + " " + a[num] + "</span>"
+        num = num + 1
+    else:
+        a[num] = "<span class='whitespace'>" + " " + a[num] + "</span>"
+        num = num + 1
 
 # if list item does not match alphanumeric character-> no whitespace, else prepend with whitespace.
 #need to refactor this, shouldnt need monum...
