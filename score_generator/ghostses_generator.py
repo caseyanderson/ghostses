@@ -17,7 +17,7 @@ cleanup
 import nltk
 import re
 
-filename = 'corpus.txt'
+filename = 'score_generator/corpus.txt'
 f = open(filename, 'r')
 x =  f.read()
 
@@ -56,7 +56,7 @@ for i in a:
 
 
 # opens the output file and writes the list there
-o = open("ghostses_output.txt", "w") # make a thing that adds which part of speech this is to the extension
+o = open("score_generator/ghostses_output.txt", "w") # make a thing that adds which part of speech this is to the extension
 o.write("".join(a))
 
 o.close()
