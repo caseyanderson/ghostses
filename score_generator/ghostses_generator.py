@@ -47,40 +47,14 @@ monum = 0
 
 # colorizes text if it is a part of speech we care about, otherwise opacity of text is 0 (i.e. invisible)
 for i in b:
-    if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
-        a[monum] = "<span class='noun'>" + a[monum] + "</span>"
+    # if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
+    # if i == 'JJ' or i == 'JJR' or i == 'JJS':
+    if i == 'VB' or i == 'VBD' or i == 'VBG' or i == 'VBN' or i == 'VBP' or i == 'VBZ':
+        a[monum] = "<span class='vrb'>" + a[monum] + "</span>"
         monum = monum + 1
     else:
         a[monum] = "<span class='whitespace'>" + a[monum] + "</span>"
         monum = monum + 1
-
-# monum = 0
-#
-# for i in a:
-#     if re.pattern("[\W]", i) is not None:
-#         monum = monum + 1
-#     else:
-#         a[monum] = " " + a[monum]
-#         monum = monum + 1
-
-# monum = 0
-#
-# for i in a:
-#     if re.match("\W", i) is not None:
-#         monum = monum + 1
-
-
-# if list item does not match alphanumeric character-> no whitespace, else prepend with whitespace.
-#need to refactor this, shouldnt need monum...
-# monum = 0
-#
-# for i in a:
-#     if re.match("\W", i) is not None:
-#         monum = monum + 1
-#     else:
-#         a[monum] = " " + i
-#         monum = monum + 1
-
 
 # opens the output file and writes the list there
 o = open("score_generator/ghostses_output.txt", "w") # make a thing that adds which part of speech this is to the extension
