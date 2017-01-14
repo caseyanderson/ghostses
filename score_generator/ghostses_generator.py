@@ -19,31 +19,40 @@ cleanup
 import nltk
 import re
 
-filename = 'score_generator/corpus.txt'
-f = open(filename, 'r')
-x =  f.read()
+# reads a textfile
+def readCorpus(filename):
+    f = open(str(filename), 'r')
+    x = f.read()
+    return x
 
 # tokenize to words and then run the parts of speech analysis
-tokenized = nltk.word_tokenize(x)
-words = nltk.pos_tag(tokenized)
+def wordTkzCrps(corpus):
+    tokenized = nltk.word_tokenize(str(corpus))
+    words = nltk.pos_tag(tokenized)
+    return words
 
-# tokenizer makes a tuple, this splits them and then list castes them, this is so clunky its insane
-a,b = zip(*words)
-a = list(a)
-b = list(b)
+def pos(tokenized):
+    pos = nltk.pos_tag(tokenized)
+    return pos
 
+# pos makes a tuple, this splits them and then list castes them, this is so clunky its insane
+def tupleSplitter(pos):
+    a,b = zip(*pos)
+    a = list(a)
+    b = list(b)
+    return a, b
 
 # if an item contains any non-alphanumeric characters it does not get prepended with a space
-num = 0
+def spaceClnr(corpus):
+    num = 0
 
-for i in a:
-    if re.match("\W", i) is not None:
-        num = num + 1
-    else:
-        a[num] = " " + a[num]
-        num = num + 1
-
-monum = 0
+    for i in corpus:
+        if re.match("\W", i) is not None:
+            num = num + 1
+        else:
+            corpus[num] = " " + corpus[num]
+            num = num + 1
+        return corpus
 
 # colorizes text if it is a part of speech we care about, otherwise opacity of text is 0 (i.e. invisible)
 for i in b:
