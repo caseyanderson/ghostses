@@ -1,4 +1,4 @@
-#usage tests
+# have to run this line by line
 
 import nltk
 import re
@@ -16,4 +16,4 @@ clean = spaceClnr(corpus[0])
 
 output = colorizer(clean, corpus[1])
 
-outputter(out, output)
+outputer(out, output)

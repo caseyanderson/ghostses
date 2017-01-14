@@ -25,20 +25,20 @@ def readCorpus(filename):
     x = f.read()
     return x
 
-# tokenize to words and then run the parts of speech analysis
+# tokenize to words and then run the parts of speech analysis, outputs a tuple
 def wordTkzCrps(corpus):
     tokenized = nltk.word_tokenize(str(corpus))
     words = nltk.pos_tag(tokenized)
     return words
 
-# pos makes a tuple, this splits them and then list castes them, this is so clunky its insane
+# splits a tuple list castes the output
 def tupleSplitter(pos):
     a,b = zip(*pos)
     a = list(a)
     b = list(b)
     return a, b
 
-# if an item contains any non-alphanumeric characters it does not get prepended with a space
+# if an item contains any non-alphanumeric characters it does not get a space
 def spaceClnr(corpus):
     num = 0
 
@@ -50,6 +50,7 @@ def spaceClnr(corpus):
             num = num + 1
         return corpus
 
+# colorize every item that is a part of speech we care about
 def colorizer(txt, pos ):
     step = 0
 
@@ -64,7 +65,7 @@ def colorizer(txt, pos ):
     return txt
 
 # opens the output file and writes the list there
-def outputter(filename, text):
+def outputer(filename, text):
     o = open(filename, "w") # make a thing that adds which part of speech this is to the extension
     o.write("".join(text))
 
