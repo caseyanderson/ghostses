@@ -31,10 +31,6 @@ def wordTkzCrps(corpus):
     words = nltk.pos_tag(tokenized)
     return words
 
-def pos(tokenized):
-    pos = nltk.pos_tag(tokenized)
-    return pos
-
 # pos makes a tuple, this splits them and then list castes them, this is so clunky its insane
 def tupleSplitter(pos):
     a,b = zip(*pos)
@@ -54,21 +50,29 @@ def spaceClnr(corpus):
             num = num + 1
         return corpus
 
-# colorizes text if it is a part of speech we care about, otherwise opacity of text is 0 (i.e. invisible)
-for i in b:
-    # if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
-    # if i == 'JJ' or i == 'JJR' or i == 'JJS':
-    # if i == 'VB' or i == 'VBD' or i == 'VBG' or i == 'VBN' or i == 'VBP' or i == 'VBZ':
-    if i == 'RB' or i == 'RBR' or i == 'RBS':
-    # if i == 'SYM':
-        a[monum] = "<span class='advrb'>" + a[monum] + "</span>"
-        monum = monum + 1
-    else:
-        a[monum] = "<span class='whitespace'>" + a[monum] + "</span>"
-        monum = monum + 1
+def colorizer(txt, pos ):
+    step = 0
+
+    for i in pos:
+        if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
+
+            txt[step] = "<span class='noun'>" + txt[step] + "</span>"
+            step = step + 1
+        else:
+            txt[step] = "<span class='whitespace'>" + txt[step] + "</span>"
+            step = step + 1
+    return txt
 
 # opens the output file and writes the list there
-o = open("score_generator/ghostses_output.txt", "w") # make a thing that adds which part of speech this is to the extension
-o.write("".join(a))
+def outputter(filename, text):
+    o = open(filename, "w") # make a thing that adds which part of speech this is to the extension
+    o.write("".join(text))
 
-o.close()
+    o.close()
+
+##########
+
+# if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
+# if i == 'JJ' or i == 'JJR' or i == 'JJS':
+# if i == 'VB' or i == 'VBD' or i == 'VBG' or i == 'VBN' or i == 'VBP' or i == 'VBZ':
+# if i == 'RB' or i == 'RBR' or i == 'RBS':
