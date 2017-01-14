@@ -47,12 +47,12 @@ monum = 0
 
 # colorizes text if it is a part of speech we care about, otherwise opacity of text is 0 (i.e. invisible)
 for i in b:
-    if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
+    # if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
     # if i == 'JJ' or i == 'JJR' or i == 'JJS':
     # if i == 'VB' or i == 'VBD' or i == 'VBG' or i == 'VBN' or i == 'VBP' or i == 'VBZ':
-    # if i == 'RB' or i == 'RBR' or i == 'RBS':
+    if i == 'RB' or i == 'RBR' or i == 'RBS':
     # if i == 'SYM':
-        a[monum] = "<span class='noun'>" + a[monum] + "</span>"
+        a[monum] = "<span class='advrb'>" + a[monum] + "</span>"
         monum = monum + 1
     else:
         a[monum] = "<span class='whitespace'>" + a[monum] + "</span>"

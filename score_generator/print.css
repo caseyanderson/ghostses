@@ -1,4 +1,13 @@
 @page {
   size: 8.5in 11in;
-  margin: 2cm;
+  margin-top: 0px;
+  margin-left: 1cm;
+  margin-right: 1cm;
+  margin-bottom: 1cm;
+}
+
+body{
+    font-family: "Times New Roman", Times, monospace;
+    font-size: 14pt;
+    line-height: 28pt;
 }
