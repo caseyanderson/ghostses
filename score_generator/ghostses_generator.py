@@ -46,21 +46,21 @@ def colorizer(txt, tagged, pos, dct ):
     for i in x:
         step = 0
         for j in tagged:
-            if j != 0:
-                if j == i:
+            if j != 0:  # make sure this hasnt already been converted
+                if j == i: # check to see if the tags match
                     colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + txt[step] + """</span>"""
-                    tagged[step] = 0
+                    tagged[step] = 0 # skip this next time
                     step = step + 1
                 else:
                     colorCorpus[step] = "<span class='whitespace'>" + txt[step] + "</span>"
-                    tagged[step] = 0
+                    tagged[step] = 0 # skip this one next time
                     step = step + 1
             else:
                 step = step + 1
     return colorCorpus
 
 
-# opens the output file and writes the list there
+# opens the output file and writes the list there, need to do spacing here also
 def outputer(filename, text):
     o = open(filename, "w") # make a thing that adds which part of speech this is to the extension
 
