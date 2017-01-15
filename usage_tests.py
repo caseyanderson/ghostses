@@ -1,14 +1,14 @@
-# have to run this line by line
+# usage example
 
 import nltk
 import re
 
-corpus = "corpus.txt"
-out = "ghostses_output.txt"
+corpus = "score_generator/corpus.txt"
+out = "score_generator/words.html"
 
 blah = readCorpus(corpus)
 
-newlbah = wordTkzCrps(blah)
+newblah = wordTkzCrps(blah)
 
 corpus = tupleSplitter(newblah)
 

@@ -1,7 +1,6 @@
 """
 ghostses generator
 
-
 1. reads arbitrary text input
 2. tokenizes text into words (followed by quick spacing fix)
 3. assigns parts of speech
@@ -13,7 +12,7 @@ list of parts of speech tags used in nltk: nltk.help.upenn_tagset()
 
 TODO:
 no space before first word! (fixing this manually right now)
-cleanup
+make into class
 """
 
 import nltk
@@ -44,11 +43,12 @@ def spaceClnr(corpus):
 
     for i in corpus:
         if re.match("\W", i) is not None:
+            # print("not a match: " + str(i) + " num is " + num)
             num = num + 1
         else:
             corpus[num] = " " + corpus[num]
             num = num + 1
-        return corpus
+    return corpus
 
 # colorize every item that is a part of speech we care about
 def colorizer(txt, pos ):
@@ -67,8 +67,24 @@ def colorizer(txt, pos ):
 # opens the output file and writes the list there
 def outputer(filename, text):
     o = open(filename, "w") # make a thing that adds which part of speech this is to the extension
-    o.write("".join(text))
 
+    top ="""
+    <html>
+    <head>
+    <link rel="stylesheet" href="styles.css" type="text/css"/>
+    <link rel="stylesheet" href="print.css" media ="print" type="text/css"/>
+    </head>
+    <body>
+    """
+
+    middle = "".join(text) + "<br/>"
+
+    bottom ="""
+    </body>
+    </html>
+    """
+
+    o.write(top + middle + bottom)
     o.close()
 
 ##########
