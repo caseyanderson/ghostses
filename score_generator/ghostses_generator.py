@@ -11,7 +11,6 @@ ghostses generator
 list of parts of speech tags used in nltk: nltk.help.upenn_tagset()
 
 TODO:
-no space before first word! (fixing this manually right now)
 make into class
 """
 
@@ -39,7 +38,7 @@ def tupleSplitter(pos):
 
 # if an item contains any non-alphanumeric characters it does not get a space
 def spaceClnr(corpus):
-    num = 0
+    num = 1 # skips first word
 
     for i in corpus:
         if re.match("\W", i) is not None:
