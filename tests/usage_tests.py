@@ -18,7 +18,7 @@ newblah = wordTkzCrps(blah)
 
 corpus = tupleSplitter(newblah)
 
-output = colorizer(corpus[0], corpus[1], 'vrb', dctnry )
+output = colorizer(corpus[0], corpus[1], 'noun', dctnry )
 
 outputer(out, output)
 

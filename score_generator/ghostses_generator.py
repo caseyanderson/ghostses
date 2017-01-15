@@ -40,24 +40,21 @@ def tupleSplitter(pos):
 def colorizer(txt, tagged, pos, dct ):
     step = 0
     size = len(tagged)
-    colorCorpus = [None] * size
+    colorCorpus = txt
     x = dct[str(pos)]
 
     for i in x:
         step = 0
         for j in tagged:
-            if j != 0:  # make sure this hasnt already been converted
-                if j == i: # check to see if the tags match
-                    colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + txt[step] + """</span>"""
-                    tagged[step] = 0 # skip this next time
-                    step = step + 1
-                else:
-                    colorCorpus[step] = "<span class='whitespace'>" + txt[step] + "</span>"
-                    tagged[step] = 0 # skip this one next time
-                    step = step + 1
+            if i == j:  # make sure this hasnt already been converted
+                print("Match at step " + str(step) + " i is " + str(i) + " j is " + str(j))
+                colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + txt[step] + """</span>"""
+                step = step + 1
             else:
                 step = step + 1
     return colorCorpus
+
+# def whitespacer (oldtxt, colorized):
 
 
 # opens the output file and writes the list there, need to do spacing here also
