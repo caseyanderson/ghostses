@@ -14,20 +14,19 @@ TODO:
 make into class
 """
 
-import nltk
-import re
-
 # reads a textfile
 def readCorpus(filename):
     f = open(str(filename), 'r')
     x = f.read()
     return x
 
+
 # tokenize to words and then run the parts of speech analysis, outputs a tuple
 def wordTkzCrps(corpus):
     tokenized = nltk.word_tokenize(str(corpus))
     words = nltk.pos_tag(tokenized)
     return words
+
 
 # splits a tuple list castes the output
 def tupleSplitter(pos):
@@ -36,32 +35,30 @@ def tupleSplitter(pos):
     b = list(b)
     return a, b
 
-# if an item contains any non-alphanumeric characters it does not get a space
-def spaceClnr(corpus):
-    newCorpus = []
-
-    for i in corpus:
-        if re.search("\W", i) is not None:
-            newCorpus.append(i)
-            num = num + 1
-        else:
-            newCorpus.append(" " + i)
-            num = num + 1
-    return newCorpus
 
 # colorize every item that is a part of speech we care about
-def colorizer(txt, pos ):
+def colorizer(txt, tagged, pos, dct ):
     step = 0
+    size = len(tagged)
+    colorCorpus = [None] * size
+    x = dct[str(pos)]
 
-    for i in pos:
-        if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
+    for i in x:
+        step = 0
+        for j in tagged:
+            if j != 0:
+                if j == i:
+                    colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + txt[step] + """</span>"""
+                    tagged[step] = 0
+                    step = step + 1
+                else:
+                    colorCorpus[step] = "<span class='whitespace'>" + txt[step] + "</span>"
+                    tagged[step] = 0
+                    step = step + 1
+            else:
+                step = step + 1
+    return colorCorpus
 
-            txt[step] = "<span class='noun'>" + txt[step] + "</span>"
-            step = step + 1
-        else:
-            txt[step] = "<span class='whitespace'>" + txt[step] + "</span>"
-            step = step + 1
-    return txt
 
 # opens the output file and writes the list there
 def outputer(filename, text):
@@ -76,6 +73,8 @@ def outputer(filename, text):
     <body>
     """
 
+    for i in text:
+        text
     middle = "".join(text) + "<br/>"
 
     bottom ="""
@@ -92,5 +91,3 @@ def outputer(filename, text):
 # if i == 'JJ' or i == 'JJR' or i == 'JJS':
 # if i == 'VB' or i == 'VBD' or i == 'VBG' or i == 'VBN' or i == 'VBP' or i == 'VBZ':
 # if i == 'RB' or i == 'RBR' or i == 'RBS':
-
-0
