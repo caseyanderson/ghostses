@@ -18,3 +18,9 @@
 .advrb {
 	color: #FA8072;
 }
+
+body{
+    font-family: "Times New Roman", Times, monospace;
+    font-size: 15pt;
+    line-height: 28pt;
+}
