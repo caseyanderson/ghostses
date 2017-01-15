@@ -16,4 +16,4 @@ clean = spaceClnr(corpus[0])
 
 output = colorizer(clean, corpus[1] )
 
-outputter(out, output)
+outputer(out, output)

@@ -38,16 +38,16 @@ def tupleSplitter(pos):
 
 # if an item contains any non-alphanumeric characters it does not get a space
 def spaceClnr(corpus):
-    num = 1 # skips first word
+    newCorpus = []
 
     for i in corpus:
-        if re.match("\W", i) is not None:
-            # print("not a match: " + str(i) + " num is " + num)
+        if re.search("\W", i) is not None:
+            newCorpus.append(i)
             num = num + 1
         else:
-            corpus[num] = " " + corpus[num]
+            newCorpus.append(" " + i)
             num = num + 1
-    return corpus
+    return newCorpus
 
 # colorize every item that is a part of speech we care about
 def colorizer(txt, pos ):
@@ -92,3 +92,5 @@ def outputer(filename, text):
 # if i == 'JJ' or i == 'JJR' or i == 'JJS':
 # if i == 'VB' or i == 'VBD' or i == 'VBG' or i == 'VBN' or i == 'VBP' or i == 'VBZ':
 # if i == 'RB' or i == 'RBR' or i == 'RBS':
+
+0
