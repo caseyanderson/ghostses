@@ -64,7 +64,7 @@ def whitespacer(corpus):
             output.append("""<span class='whitespace'>""" + i + """</span>""")
     return output
 
-# opens the output file and writes the list there, need to do spacing here also
+# opens the output file, checks to see if text in html tag needs a space before it, writes processed list to output
 def outputer(filename, corpus):
     output = []
 
