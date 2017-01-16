@@ -46,7 +46,7 @@ def colorizer(corpus, tagged, pos, dct ):
     for i in x:
         step = 0
         for j in tagged:
-            if i == j: 
+            if i == j:
                 colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + corpus[step] + """</span>"""
                 step = step + 1
             else:
@@ -80,7 +80,7 @@ def outputer(filename, corpus):
     """
 
     for i in corpus:
-        soup = BeautifulSoup(i)
+        soup = BeautifulSoup(i, "html.parser")
         the_text = soup.get_text()
         if re.search("\W", the_text) is not None:
             output.append(str(i))
@@ -96,10 +96,3 @@ def outputer(filename, corpus):
 
     o.write(top + middle + bottom)
     o.close()
-
-##########
-
-# if i == 'NN' or i == 'NNP' or i == 'NNPS' or i == 'NNS':
-# if i == 'JJ' or i == 'JJR' or i == 'JJS':
-# if i == 'VB' or i == 'VBD' or i == 'VBG' or i == 'VBN' or i == 'VBP' or i == 'VBZ':
-# if i == 'RB' or i == 'RBR' or i == 'RBS':

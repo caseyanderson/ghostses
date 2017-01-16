@@ -19,7 +19,7 @@ newblah = wordTkzCrps(blah)
 
 corpus = tupleSplitter(newblah)
 
-output = colorizer(corpus[0], corpus[1], 'adj', dctnry )
+output = colorizer(corpus[0], corpus[1], 'noun', dctnry )
 
 allhtml = whitespacer(output)
 
