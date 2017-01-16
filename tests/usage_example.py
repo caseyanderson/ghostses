@@ -2,6 +2,7 @@
 
 import nltk
 import re
+from bs4 import BeautifulSoup
 
 corpus = "score_generator/corpus.txt"
 out = "score_generator/words.html"
@@ -18,20 +19,8 @@ newblah = wordTkzCrps(blah)
 
 corpus = tupleSplitter(newblah)
 
-output = colorizer(corpus[0], corpus[1], 'noun', dctnry )
+output = colorizer(corpus[0], corpus[1], 'adj', dctnry )
 
-outputer(out, output)
+allhtml = whitespacer(output)
 
-#####
-
-def spaceClnr(corpus):
-    newCorpus = []
-
-    for i in corpus:
-        if re.search("\W", i) is not None:
-            newCorpus.append(i)
-            num = num + 1
-        else:
-            newCorpus.append(" " + i)
-            num = num + 1
-    return newCorpus
+outputer(out, allhtml)

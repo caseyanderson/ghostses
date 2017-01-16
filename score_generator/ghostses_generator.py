@@ -29,36 +29,45 @@ def wordTkzCrps(corpus):
 
 
 # splits a tuple list castes the output
-def tupleSplitter(pos):
-    a,b = zip(*pos)
+def tupleSplitter(corpus):
+    a,b = zip(*corpus)
     a = list(a)
     b = list(b)
     return a, b
 
 
 # colorize every item that is a part of speech we care about
-def colorizer(txt, tagged, pos, dct ):
+def colorizer(corpus, tagged, pos, dct ):
     step = 0
     size = len(tagged)
-    colorCorpus = txt
+    colorCorpus = corpus
     x = dct[str(pos)]
 
     for i in x:
         step = 0
         for j in tagged:
-            if i == j:  # make sure this hasnt already been converted
-                print("Match at step " + str(step) + " i is " + str(i) + " j is " + str(j))
-                colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + txt[step] + """</span>"""
+            if i == j: 
+                colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + corpus[step] + """</span>"""
                 step = step + 1
             else:
                 step = step + 1
     return colorCorpus
 
-# def whitespacer (oldtxt, colorized):
+# everything not colorized by colorizer is whitespace
+def whitespacer(corpus):
+    output = []
 
+    for i in corpus:
+        if re.search("<[^<>]+>", i) is not None:
+            output.append(i)
+        else:
+            output.append("""<span class='whitespace'>""" + i + """</span>""")
+    return output
 
 # opens the output file and writes the list there, need to do spacing here also
-def outputer(filename, text):
+def outputer(filename, corpus):
+    output = []
+
     o = open(filename, "w") # make a thing that adds which part of speech this is to the extension
 
     top ="""
@@ -70,9 +79,15 @@ def outputer(filename, text):
     <body>
     """
 
-    for i in text:
-        text
-    middle = "".join(text) + "<br/>"
+    for i in corpus:
+        soup = BeautifulSoup(i)
+        the_text = soup.get_text()
+        if re.search("\W", the_text) is not None:
+            output.append(str(i))
+        else:
+            output.append(" " + str(i))
+
+    middle = "".join(output) + "<br/>"
 
     bottom ="""
     </body>
