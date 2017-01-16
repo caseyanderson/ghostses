@@ -16,7 +16,11 @@
 }
 
 .advrb {
-	color: #FA8072;
+	color: #FFA500;
+}
+
+.symb {
+	color: #800080;
 }
 
 .rest {
@@ -25,6 +29,6 @@
 
 body{
     font-family: "Times New Roman", Times, monospace;
-    font-size: 15pt;
+    font-size: 14pt;
     line-height: 28pt;
 }
