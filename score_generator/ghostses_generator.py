@@ -96,3 +96,4 @@ def outputer(filename, corpus):
 
     o.write(top + middle + bottom)
     o.close()
+    return output
