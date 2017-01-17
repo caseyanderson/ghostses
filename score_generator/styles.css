@@ -1,5 +1,5 @@
 .whitespace {
-	color: #FFFFFF;
+	color: #D3D3D3;
 	opacity: 0.0;
 }
 
@@ -28,7 +28,7 @@
 }
 
 body{
-    font-family: "Times New Roman", Times, monospace;
-    font-size: 14pt;
+	font-family: monaco,Consolas,Lucida Console,monospace;
+	font-size: 14pt;
     line-height: 28pt;
 }
