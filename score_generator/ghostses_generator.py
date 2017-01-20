@@ -82,7 +82,7 @@ def outputer(filename, corpus):
     for i in corpus:
         soup = BeautifulSoup(i, "html.parser")
         the_text = soup.get_text()
-        if re.search("\W", the_text) is not None:
+        if re.search('[^A-Za-z0-9]+', the_text) is not None:
             output.append(str(i))
         else:
             output.append(" " + str(i))

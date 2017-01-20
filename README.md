@@ -13,6 +13,8 @@ actions are dictated by pairs of words on the same foreground sheet. For example
 
 ![](example.png)
 
+in the example above the first noun (Janine) indicates the start of radio action which may continue until a second noun (surgeon), the utterance of which demarcates an end to radio action.
+
 performers are encouraged to change the number and selection of foreground layers for each section.
 
 a loosely coordinated distortion.
