@@ -73,8 +73,8 @@ def outputer(filename, corpus):
     top ="""
     <html>
     <head>
-    <link rel="stylesheet" href="styles.css" type="text/css"/>
-    <link rel="stylesheet" href="print.css" media ="print" type="text/css"/>
+    <link rel="stylesheet" href="/score_generator/css/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="/score_generator/css/print.css" media ="print" type="text/css"/>
     </head>
     <body>
     """

@@ -30,5 +30,6 @@
 body{
 	font-family: monaco,Consolas,Lucida Console,monospace;
 	font-size: 13pt;
-    line-height: 20pt;
+    line-height: 26pt;
+	margin: 1cm 1cm 1cm 1cm;
 }

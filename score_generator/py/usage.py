@@ -5,9 +5,12 @@ import re
 from bs4 import BeautifulSoup
 
 corpus = "score_generator/py/corpus.txt"
-out = "score_generator/html/words.html"
+out = "score_generator/html/"
 
+#refactor the next two lines
 dctnry={}
+keys = ['noun', 'adj', 'vrb', 'advrb','symb']
+
 dctnry['noun'] = [ 'NN', 'NNP', 'NNPS', 'NNS']
 dctnry['adj'] = ['JJ', 'JJR', 'JJS']
 dctnry['vrb'] = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
@@ -21,8 +24,8 @@ newblah = wordTkzCrps(blah)
 
 corpus = tupleSplitter(newblah)
 
-output = colorizer(corpus[0], corpus[1], 'vrb', dctnry )
 
+output = colorizer(corpus[0], corpus[1], str(keys[4]), dctnry)
 allhtml = whitespacer(output)
-
-final = outputer(out, allhtml)
+path = out + str(keys[4]) + '.html'
+final = outputer(path, allhtml)
