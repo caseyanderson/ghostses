@@ -4,7 +4,7 @@ import nltk
 import re
 from bs4 import BeautifulSoup
 
-corpus = "score_generator/corpus.txt"
+corpus = "score_generator/py/corpus.txt"
 out = "score_generator/html/words.html"
 
 dctnry={}
