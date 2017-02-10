@@ -3,6 +3,7 @@
 import nltk
 import re
 from bs4 import BeautifulSoup
+import time
 
 corpus = "score_generator/py/corpus.txt"
 out = "score_generator/html/"
@@ -25,7 +26,7 @@ newblah = wordTkzCrps(blah)
 corpus = tupleSplitter(newblah)
 
 
-output = colorizer(corpus[0], corpus[1], str(keys[4]), dctnry)
+output = colorizer(corpus[0], corpus[1], str(keys[2]), dctnry)
 allhtml = whitespacer(output)
-path = out + str(keys[4]) + '.html'
+path = out + str(keys[2]) + '.html'
 final = outputer(path, allhtml)
