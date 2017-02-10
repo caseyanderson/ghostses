@@ -1,0 +1,9 @@
+{
+  "name": "ghostses",
+  "version": "0.0.1",
+  "dependencies": {
+    "grunt": "latest",
+    "grunt-contrib-connect": "latest",
+    "grunt-contrib-watch": "latest"
+  }
+}
