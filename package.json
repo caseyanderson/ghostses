@@ -1,6 +1,6 @@
 {
   "name": "ghostses",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "dependencies": {
     "grunt": "latest",
     "grunt-contrib-connect": "latest",
