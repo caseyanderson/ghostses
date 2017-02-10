@@ -35,5 +35,3 @@ grunt.loadNpmTasks('grunt-contrib-connect');
 grunt.registerTask('server', ['connect','watch']);
 
 };
-
-0
