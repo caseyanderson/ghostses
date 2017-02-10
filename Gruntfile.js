@@ -8,10 +8,10 @@ module.exports = function(grunt) {
       livereload: true,
     },
     css: {
-      files: ['**/*.css'],
+      files: ['**/score_generator/css/*.css'],
   },
     html: {
-      files: ['**/*.html'],
+      files: ['**/score_generator/html/*.html'],
     }
   },
   connect: {
@@ -35,3 +35,5 @@ grunt.loadNpmTasks('grunt-contrib-connect');
 grunt.registerTask('server', ['connect','watch']);
 
 };
+
+0

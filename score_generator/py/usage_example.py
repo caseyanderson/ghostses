@@ -5,7 +5,7 @@ import re
 from bs4 import BeautifulSoup
 
 corpus = "score_generator/corpus.txt"
-out = "score_generator/words.html"
+out = "score_generator/html/words.html"
 
 dctnry={}
 dctnry['noun'] = [ 'NN', 'NNP', 'NNPS', 'NNS']
