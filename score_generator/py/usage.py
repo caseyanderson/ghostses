@@ -5,8 +5,8 @@ import re
 from bs4 import BeautifulSoup
 import time
 
-corpus = "score_generator/py/corpus.txt"
-out = "score_generator/html/"
+corpus = "/score_generator/py/corpus.txt"
+out = "/score_generator/html/"
 
 #refactor the next two lines
 dctnry={}
