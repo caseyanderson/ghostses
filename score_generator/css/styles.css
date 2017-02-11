@@ -27,9 +27,14 @@
 	color: #000000;
 }
 
-body{
+body {
 	font-family: monaco,Consolas,Lucida Console,monospace;
 	font-size: 13pt;
     line-height: 26pt;
 	margin: 1cm 1cm 1cm 1cm;
+}
+
+img {
+	max-width: 800px;
+	max-height: 800px;
 }
