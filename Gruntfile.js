@@ -9,22 +9,12 @@ module.exports = function(grunt) {
     },
     css: {
       files: ['**/score_generator/css/*.css'],
-    //   files: ['**/score_generator/scss/*.scss'],
-    //   tasks: ['compass']
   },
     html: {
       files: ['**/score_generator/html/*.html']
     }
 },
-// compass: {
-// 			dist: {
-// 				options: {
-// 					sassDir: 'sass',
-// 					cssDir: 'css'
-// 				}
-// 			}
-// 		},
-  connect: {
+    connect: {
     server: {
       options: {
         port: 9000,

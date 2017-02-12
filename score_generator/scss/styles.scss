@@ -1,0 +1,53 @@
+$font-stack:    100% monaco,Consolas,Lucida Console,monospace ;
+$primary-color: #000000;
+
+
+body {
+  font: $font-stack;
+  font-size: 13pt;
+  line-height: 26pt;
+  margin: 1cm;
+}
+
+div {
+	margin-bottom: 40px;
+}
+
+p, img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+img {
+    max-width: 850px;
+    max-height: 850px;
+}
+
+.whitespace {
+	color: #D3D3D3;
+	opacity: 0.0;
+}
+
+.noun {
+	color: #FF0000;
+}
+
+.adj {
+	color: #0000FF;
+}
+
+.vrb {
+	color: #008000;
+}
+
+.advrb {
+	color: #FFA500;
+}
+
+.symb {
+	color: #800080;
+}
+
+.rest {
+	color: #000000;
+}
