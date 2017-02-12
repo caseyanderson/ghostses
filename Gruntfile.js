@@ -5,15 +5,25 @@ module.exports = function(grunt) {
 
   watch: {
     options: {
-      livereload: true,
+      livereload: true
     },
     css: {
       files: ['**/score_generator/css/*.css'],
+    //   files: ['**/score_generator/scss/*.scss'],
+    //   tasks: ['compass']
   },
     html: {
-      files: ['**/score_generator/html/*.html'],
+      files: ['**/score_generator/html/*.html']
     }
-  },
+},
+// compass: {
+// 			dist: {
+// 				options: {
+// 					sassDir: 'sass',
+// 					cssDir: 'css'
+// 				}
+// 			}
+// 		},
   connect: {
     server: {
       options: {
@@ -22,7 +32,7 @@ module.exports = function(grunt) {
         hostname: '0.0.0.0',
         protocol: 'http',
         livereload: true,
-        open: true,
+        open: true
       }
     }
   },

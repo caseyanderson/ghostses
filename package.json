@@ -1,6 +1,11 @@
 {
   "name": "ghostses",
   "version": "0.1.0",
+  "author": "Casey Anderson",
+  "repository" : {
+      "type": "git",
+      "url": "https://github.com/caseyanderson/ghostses"
+  },
   "dependencies": {
     "grunt": "latest",
     "grunt-contrib-connect": "latest",
