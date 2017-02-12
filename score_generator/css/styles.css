@@ -1,8 +1,8 @@
 body {
+  margin: 1cm;
   font: 100% monaco, Consolas, Lucida Console, monospace;
   font-size: 13pt;
-  line-height: 26pt;
-  margin: 1cm; }
+  line-height: 26pt; }
 
 div {
   margin-bottom: 40px; }
@@ -16,25 +16,25 @@ img {
   max-height: 850px; }
 
 .whitespace {
-  color: #D3D3D3;
+  color: lightgray;
   opacity: 0.0; }
 
 .noun {
-  color: #FF0000; }
+  color: red; }
 
 .adj {
-  color: #0000FF; }
+  color: blue; }
 
 .vrb {
-  color: #008000; }
+  color: green; }
 
 .advrb {
-  color: #FFA500; }
+  color: orange; }
 
 .symb {
-  color: #800080; }
+  color: purple; }
 
 .rest {
-  color: #000000; }
+  color: black; }
 
 /*# sourceMappingURL=styles.css.map */

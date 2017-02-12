@@ -1,21 +1,22 @@
 $font-stack:    100% monaco,Consolas,Lucida Console,monospace ;
-$primary-color: #000000;
-
+$pad:       1cm;
+$cell:      10px;
+$fs:        13pt;
 
 body {
-  font: $font-stack;
-  font-size: 13pt;
-  line-height: 26pt;
-  margin: 1cm;
+    margin: $pad;
+    font: $font-stack;
+    font-size: $fs;
+    line-height: $fs * 2;
 }
 
 div {
-	margin-bottom: 40px;
+	margin-bottom: $cell * 4;
 }
 
 p, img {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: $cell;
+    margin-bottom: $cell;
 }
 
 img {
@@ -24,30 +25,30 @@ img {
 }
 
 .whitespace {
-	color: #D3D3D3;
+	color: rgb(211, 211, 211);
 	opacity: 0.0;
 }
 
 .noun {
-	color: #FF0000;
+	color: rgb(255, 0, 0);
 }
 
 .adj {
-	color: #0000FF;
+	color: rgb(0, 0, 255);
 }
 
 .vrb {
-	color: #008000;
+	color: rgb(0, 128, 0);
 }
 
 .advrb {
-	color: #FFA500;
+	color: rgb(255, 165, 0);
 }
 
 .symb {
-	color: #800080;
+	color: rgb(128, 0, 128);
 }
 
-.rest {
-	color: #000000;
+.background {
+	color: rgb(0,0,0);
 }
