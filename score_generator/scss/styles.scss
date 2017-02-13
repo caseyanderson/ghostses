@@ -1,17 +1,25 @@
-$font-stack:  80%  monaco,Consolas,Lucida Console,monospace ;
+// general spacing
 $pad:       1cm;
 $cell:      10px;
-$fs:        13pt;
+
+// typography
+$font-style: normal;
+$font-variant: normal;
+$font-weight: normal;
+$font-color: black;
+$font-size: 13pt;
+$line-height: $font-size*2;
+$font-family: monaco,Consolas,Lucida Console,monospace;
+
+html {
+  font: $font-style $font-variant $font-weight #{$font-size}/#{$line-height} $font-family;
+}
 
 body {
     margin: $pad;
-    font: $font-stack;
-    font-size: $fs;
-    line-height: $fs * 2;
 }
 
 div {
-    font-size: $fs;
 	margin-bottom: $cell * 4;
 }
 

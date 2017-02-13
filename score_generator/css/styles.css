@@ -1,11 +1,10 @@
+html {
+  font: normal normal normal 13pt/26pt monaco, Consolas, Lucida Console, monospace; }
+
 body {
-  margin: 1cm;
-  font: 80% monaco, Consolas, Lucida Console, monospace;
-  font-size: 13pt;
-  line-height: 26pt; }
+  margin: 1cm; }
 
 div {
-  font-size: 13pt;
   margin-bottom: 40px; }
 
 p, img {
