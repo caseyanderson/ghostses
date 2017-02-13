@@ -1,38 +1,50 @@
 html {
-  font: normal normal normal 12pt/21pt monaco, Consolas, Lucida Console, monospace; }
+  font: normal normal normal 12pt/21pt monaco, Consolas, Lucida Console, monospace;
+}
 
 body {
-  margin: 1cm; }
+  margin: 1cm;
+}
 
 div {
-  margin-bottom: 40px; }
+  margin-bottom: 40px;
+}
 
 p, img {
   margin-top: 10px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+}
 
 img {
   max-width: 850px;
-  max-height: 850px; }
+  max-height: 850px;
+}
 
 .whitespace {
   color: lightgray;
-  opacity: 0.0; }
+  opacity: 0.0;
+}
 
 .noun {
-  color: red; }
+  color: red;
+}
 
 .adj {
-  color: blue; }
+  color: blue;
+}
 
 .vrb {
-  color: green; }
+  color: green;
+}
 
 .advrb {
-  color: orange; }
+  color: orange;
+}
 
 .symb {
-  color: purple; }
+  color: purple;
+}
 
 .background {
-  color: black; }
+  color: black;
+}

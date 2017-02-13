@@ -10,7 +10,7 @@
   "devDependencies": {
     "gulp": "latest",
     "gulp-connect": "latest",
-    "gulp-open": "^2.0.0",
+    "gulp-open": "latest",
     "gulp-sass": "latest"
   }
 }
