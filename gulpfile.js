@@ -9,7 +9,7 @@ var config = {
     html: './score_generator/html/*.html',
     css: './score_generator/css/',
     scss: './score_generator/scss/styles.scss',
-    base: '/score_generator/html/'
+    base: './score_generator/html/'
 }
 
 var sassOptions = {
@@ -31,8 +31,8 @@ gulp.task('html', function () {
 });
 
 gulp.task('open', function(){
-    gulp.src('./score_generator/html/')
-        .pipe(open({uri: ((config.url).concat(':', config.port, config.base )) }));
+    gulp.src(config.base)
+        .pipe(open({uri: (config.url).concat(':', config.port, (config.base).replace('.','')) }));
 });
 
 gulp.task('styles', function() {
