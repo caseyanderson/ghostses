@@ -2,13 +2,13 @@
   "name": "ghostses",
   "version": "0.1.0",
   "author": "Casey Anderson",
-  "repository" : {
-      "type": "git",
-      "url": "https://github.com/caseyanderson/ghostses"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caseyanderson/ghostses"
   },
-  "dependencies": {
-    "grunt": "latest",
-    "grunt-contrib-connect": "latest",
-    "grunt-contrib-watch": "latest"
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "latest",
+    "gulp-connect": "latest"
   }
 }

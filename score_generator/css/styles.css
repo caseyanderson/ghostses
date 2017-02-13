@@ -1,10 +1,11 @@
 body {
   margin: 1cm;
-  font: 100% monaco, Consolas, Lucida Console, monospace;
+  font: 90% monaco, Consolas, Lucida Console, monospace;
   font-size: 13pt;
   line-height: 26pt; }
 
 div {
+  font-size: 13pt;
   margin-bottom: 40px; }
 
 p, img {
@@ -34,7 +35,7 @@ img {
 .symb {
   color: purple; }
 
-.rest {
+.background {
   color: black; }
 
 /*# sourceMappingURL=styles.css.map */
