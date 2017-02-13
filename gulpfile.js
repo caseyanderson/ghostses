@@ -44,7 +44,7 @@ gulp.task('styles', function() {
 
 gulp.task('watch', function () {
     gulp.watch(config.html, ['html']);
-    gulp.watch(config.scss, ['styles'])
+    gulp.watch(config.scss, ['styles']);
 });
 
 gulp.task('default', ['connect', 'open', 'watch']);
