@@ -9,6 +9,7 @@
   "dependencies": {},
   "devDependencies": {
     "gulp": "latest",
-    "gulp-connect": "latest"
+    "gulp-connect": "latest",
+    "gulp-sass": "latest"
   }
 }

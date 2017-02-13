@@ -1,12 +1,12 @@
-var gulp = require('gulp'),
-  connect = require('gulp-connect');
-
+var gulp = require('gulp');
+var connect = require('gulp-connect');
+var sass = require('gulp-sass');
 
   var config = {
       port: 9005,
       url: 'http://localhost',
       html: './score_generator/html/*.html',
-      css: './score_generator/css/styles.css',
+      css: './score_generator/css/',
       scss: './score_generator/scss/styles.scss'
   }
 
@@ -23,8 +23,16 @@ gulp.task('html', function () {
     .pipe(connect.reload());
 });
 
+gulp.task('styles', function() {
+    gulp.src(config.scss)
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(config.css))
+        .pipe(connect.reload());
+});
+
 gulp.task('watch', function () {
     gulp.watch(config.html, ['html']);
+    gulp.watch(config.scss, ['styles'])
 });
 
 gulp.task('default', ['connect', 'watch']);

@@ -1,6 +1,6 @@
 body {
   margin: 1cm;
-  font: 90% monaco, Consolas, Lucida Console, monospace;
+  font: 80% monaco, Consolas, Lucida Console, monospace;
   font-size: 13pt;
   line-height: 26pt; }
 
@@ -37,5 +37,3 @@ img {
 
 .background {
   color: black; }
-
-/*# sourceMappingURL=styles.css.map */
