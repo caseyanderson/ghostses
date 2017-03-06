@@ -23,7 +23,7 @@ div {
 	margin-bottom: $cell * 4;
 }
 
-p, img {
+p, img, footer {
     margin-top: $cell;
     margin-bottom: $cell;
 }
@@ -31,6 +31,11 @@ p, img {
 img {
     max-width: 850px;
     max-height: 850px;
+}
+
+footer {
+    text-align: center;
+    font-style: italic;
 }
 
 .whitespace {
