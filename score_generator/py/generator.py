@@ -15,6 +15,7 @@ class Ghostses:
         """ setup the object """
         self.filename = filename
         self.corpus = None
+        self.tokens = None
         self.pos = None
 
     def readCorpus(self):
@@ -22,13 +23,16 @@ class Ghostses:
         f = open(str(self.filename), 'r')
         self.corpus = f.read()
 
-    def wordTkzCrps(self):
-        """ tokenize corpus to words
-            run parts of speech analysis on words
-            converts and stores output as 2d list [ word, pos ] """
-        tokenized = nltk.word_tokenize(str(self.corpus))
-        words = nltk.pos_tag(tokenized)
-        self.pos = list(map(list, words))
+    def getTokens(self):
+        """ tokenize corpus """
+        self.tokens = nltk.word_tokenize(str(self.corpus))
+
+    def getPOS(self):
+        """ run parts of speech analysis on tokens
+            converts and stores output as 2d list [ token, pos ] """
+        pos = nltk.pos_tag(self.tokens)
+        self.pos = list(map(list, pos))
+
 
 # colorize every item that is a part of speech we care about
 def colorizer(corpus, tagged, pos, dct ):
