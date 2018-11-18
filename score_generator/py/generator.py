@@ -1,7 +1,7 @@
 """
 TODO:
 colorizer and whitespacer can be the same function run twice
-make into class!
+make a "get only words" function
 
 11/18/2018 CHANGES:
 * tuple2list converts tuple to 2d array so tag always stays with word
@@ -29,7 +29,8 @@ class Ghostses:
 
     def getPOS(self):
         """ run parts of speech analysis on tokens
-            converts and stores output as 2d list [ token, pos ] """
+            converts and stores output as 2d list
+            [ token, pos ] """
         pos = nltk.pos_tag(self.tokens)
         self.pos = list(map(list, pos))
 
