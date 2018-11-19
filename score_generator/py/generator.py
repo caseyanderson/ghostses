@@ -4,28 +4,32 @@ colorizer and whitespacer can be the same function run twice
 make a "get only words" function
 
 11/18/2018 CHANGES:
-* tuple2list converts tuple to 2d array so tag always stays with word
 * now formatting html with yattag
 
 """
+
 
 class Ghostses:
 
     def __init__(self, filename):
         """ setup the object """
         self.filename = filename
-        self.corpus = None
-        self.tokens = None
-        self.pos = None
+        self.corpus = None # plaintext of the corpus
+        self.tokens = None # tokenized version of the corpus
+        self.pos = None # textenized version of the corpus with parts of speech [word, pos]
+        self.colorized = {} # dict to store the colorized parts of speech 
+
 
     def readCorpus(self):
         """ read the corpus into object """
         f = open(str(self.filename), 'r')
         self.corpus = f.read()
 
+
     def getTokens(self):
         """ tokenize corpus """
         self.tokens = nltk.word_tokenize(str(self.corpus))
+
 
     def getPOS(self):
         """ run parts of speech analysis on tokens
@@ -35,22 +39,22 @@ class Ghostses:
         self.pos = list(map(list, pos))
 
 
-# colorize every item that is a part of speech we care about
-def colorizer(corpus, tagged, pos, dct ):
-    step = 0
-    size = len(tagged)
-    colorCorpus = corpus
-    x = dct[str(pos)]
+    def colorizer(self, spch, dct):
+        labels = dct
+        speech = spch
+        size = len(self.pos)
+        colorized = [None] * size
+        for x in labels[speech]:
+            print("looking for " + x)
+            step = 0
+            for y in self.pos:
+                if y[1] == x:
+                    print("found " + x + " at " + str(step) + " : " + y[0])
+                    colorizedToken = "<span class='" + str(speech) + "'>" + str(y[0]) + "</a>"
+                    colorized[step] = colorizedToken
+                step+=1
+        self.colorized[str(speech)] = colorized
 
-    for i in x:
-        step = 0
-        for j in tagged:
-            if i == j:
-                colorCorpus[step] = """<span class='""" + str(pos) + """'>""" + corpus[step] + """</span>"""
-                step = step + 1
-            else:
-                step = step + 1
-    return colorCorpus
 
 # everything not colorized by colorizer is whitespace
 def whitespacer(corpus):
