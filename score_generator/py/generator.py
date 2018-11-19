@@ -1,8 +1,8 @@
 """
 TODO:
-1. rewrite output function
-2. can nltk help me figure out when a token needs a space before or after?
-2. is there a way to prettify after output but before publishing? id like to remove successive tags that repeat unless its super complicated for some reason
+1. need to know if object cares about whitespace, add to init (T or F self.whitespace)
+2. rewrite getPOs and colorizer to handle spaces if object cares about whitespace 
+3. rewrite output function
 
 ~less important~
 make a "get only words" function
@@ -16,7 +16,7 @@ class Ghostses:
         self.filename = filename
         self.corpus = None # plaintext of the corpus
         self.tokens = None # tokenized corpus
-        self.pos = None # textenized corpus with parts of speech [token, pos]
+        self.pos = None # tokenized corpus with parts of speech [token, pos]
         self.colorized = {} # dict to store the colorized parts of speech
 
 
@@ -26,9 +26,13 @@ class Ghostses:
         self.corpus = f.read()
 
 
-    def getTokens(self):
+    def getTokens(self, whitespace = False):
         """ tokenize corpus """
-        self.tokens = nltk.word_tokenize(str(self.corpus))
+        if whitespace == False:
+            self.tokens = nltk.word_tokenize(str(self.corpus))
+        elif whitespace == True:
+            temp = [[nltk.word_tokenize(w), ' '] for w in self.corpus.split()]
+            self.tokens = list(itertools.chain(*list(itertools.chain(*temp))))
 
 
     def getPOS(self):
@@ -50,7 +54,7 @@ class Ghostses:
         size = len(self.pos)
         colorized = [None] * size
         for x in labels[speech]:
-            print("looking for " + x)
+            # print("looking for " + x)
             step = 0
             for y in self.pos:
                 if y[1] == x:
