@@ -3,8 +3,6 @@ TODO:
 colorizer and whitespacer can be the same function run twice
 make a "get only words" function
 
-11/18/2018 CHANGES:
-* now formatting html with yattag
 
 """
 
@@ -15,9 +13,9 @@ class Ghostses:
         """ setup the object """
         self.filename = filename
         self.corpus = None # plaintext of the corpus
-        self.tokens = None # tokenized version of the corpus
-        self.pos = None # textenized version of the corpus with parts of speech [word, pos]
-        self.colorized = {} # dict to store the colorized parts of speech 
+        self.tokens = None # tokenized corpus
+        self.pos = None # textenized corpus with parts of speech [token, pos]
+        self.colorized = {} # dict to store the colorized parts of speech
 
 
     def readCorpus(self):
@@ -53,19 +51,15 @@ class Ghostses:
                     colorizedToken = "<span class='" + str(speech) + "'>" + str(y[0]) + "</a>"
                     colorized[step] = colorizedToken
                 step+=1
+        step = 0
+        for z in colorized:
+            if z == None:
+                word = self.pos[step][0]
+                print(word)
+                whitespacedToken = "<span class='whitespace'>" + str(word) + "</a>"
+                colorized[step] = whitespacedToken
+            step+=1
         self.colorized[str(speech)] = colorized
-
-
-# everything not colorized by colorizer is whitespace
-def whitespacer(corpus):
-    output = []
-
-    for i in corpus:
-        if re.search("<[^<>]+>", i) is not None:
-            output.append(i)
-        else:
-            output.append("""<span class='whitespace'>""" + i + """</span>""")
-    return output
 
 # opens the output file, checks to see if text in html tag needs a space before it, writes processed list to output
 def outputer(filename, corpus):
