@@ -69,6 +69,10 @@ class Ghostses:
         self.colorized[str(speech)] = colorized
 
 
+#########
+#########
+#########
+
 # opens the output file, checks to see if text in html tag needs a space before it, writes processed list to output
 def outputer(filename, corpus):
     output = []
