@@ -1,13 +1,16 @@
 """
 TODO:
-1. need to know if object cares about whitespace, add to init (T or F self.whitespace)
-2. rewrite getPOs and colorizer to handle spaces if object cares about whitespace 
-3. rewrite output function
+1. rewrite getPOs and colorizer to handle spaces if object cares about whitespace
+2. rewrite output function
 
 ~less important~
 make a "get only words" function
 
 """
+
+import itertools
+import nltk
+
 
 class Ghostses:
 
@@ -17,6 +20,7 @@ class Ghostses:
         self.corpus = None # plaintext of the corpus
         self.tokens = None # tokenized corpus
         self.pos = None # tokenized corpus with parts of speech [token, pos]
+        self.whitespace = False # defaults to False, True if tokenization preserves whitespace
         self.colorized = {} # dict to store the colorized parts of speech
 
 
@@ -26,13 +30,14 @@ class Ghostses:
         self.corpus = f.read()
 
 
-    def getTokens(self, whitespace = False):
+    def getTokens(self, spaces = False):
         """ tokenize corpus """
-        if whitespace == False:
+        if spaces == False:
             self.tokens = nltk.word_tokenize(str(self.corpus))
-        elif whitespace == True:
+        elif spaces == True:
             temp = [[nltk.word_tokenize(w), ' '] for w in self.corpus.split()]
             self.tokens = list(itertools.chain(*list(itertools.chain(*temp))))
+            self.whitespace = True
 
 
     def getPOS(self):
