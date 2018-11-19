@@ -11,7 +11,6 @@ make a "get only words" function
 import itertools
 import nltk
 
-
 class Ghostses:
 
     def __init__(self, filename):
