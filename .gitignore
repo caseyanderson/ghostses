@@ -38,4 +38,4 @@ node_modules
 
 # ipython
 .ipynb_checkpoints
-.ipynb
+*.ipynb
