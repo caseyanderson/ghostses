@@ -40,6 +40,11 @@ class Ghostses:
 
 
     def colorizer(self, spch, dct):
+        """ get NLTK tags for part of speech
+            find all words that match part of speech and wrap matches in color <span>
+            all other words are wrapped in whitespace <span>
+            output to dict at self.colorized
+        """
         labels = dct
         speech = spch
         size = len(self.pos)
@@ -50,7 +55,7 @@ class Ghostses:
             for y in self.pos:
                 if y[1] == x:
                     print("found " + x + " at " + str(step) + " : " + y[0])
-                    colorizedToken = "<span class='" + str(speech) + "'>" + str(y[0]) + "</a>"
+                    colorizedToken = "<span class='" + str(speech) + "'>" + str(y[0]) + "</span>"
                     colorized[step] = colorizedToken
                 step+=1
         step = 0
@@ -58,7 +63,7 @@ class Ghostses:
             if z == None:
                 word = self.pos[step][0]
                 print(word)
-                whitespacedToken = "<span class='whitespace'>" + str(word) + "</a>"
+                whitespacedToken = "<span class='whitespace'>" + str(word) + "</span>"
                 colorized[step] = whitespacedToken
             step+=1
         self.colorized[str(speech)] = colorized
