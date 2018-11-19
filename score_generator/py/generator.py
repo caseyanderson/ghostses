@@ -1,11 +1,8 @@
 """
 TODO:
-colorizer and whitespacer can be the same function run twice
 make a "get only words" function
 
-
 """
-
 
 class Ghostses:
 
@@ -60,6 +57,7 @@ class Ghostses:
                 colorized[step] = whitespacedToken
             step+=1
         self.colorized[str(speech)] = colorized
+
 
 # opens the output file, checks to see if text in html tag needs a space before it, writes processed list to output
 def outputer(filename, corpus):
