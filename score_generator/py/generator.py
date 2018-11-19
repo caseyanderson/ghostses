@@ -1,5 +1,10 @@
 """
 TODO:
+1. rewrite output function
+2. can nltk help me figure out when a token needs a space before or after?
+2. is there a way to prettify after output but before publishing? id like to remove successive tags that repeat unless its super complicated for some reason
+
+~less important~
 make a "get only words" function
 
 """
