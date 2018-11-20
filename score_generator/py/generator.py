@@ -1,7 +1,8 @@
 """
 TODO:
-1. rewrite getPOs and colorizer to handle spaces if object cares about whitespace
-2. rewrite output function
+1. function that looks at tokens and replaces things that arent spaces with items from colorized, check to make sure order is preserved
+2. sanitize final output function? something that checks for repeated/redundant tags and removes them
+3. new outputter, it should  just format the header, insert the content, and spit to the file, not anything else
 
 ~less important~
 make a "get only words" function
@@ -51,7 +52,7 @@ class Ghostses:
             self.pos = list(map(list, pos))
         elif self.whitespace == True:
             for i in self.tokens:
-                if i.isspace() != True:
+                if i.isspace() != True: # filters out tokens that are spaces
                     pos_prep.append(i)
             pos = nltk.pos_tag(pos_prep)
             self.pos = list(map(list, pos))
@@ -85,7 +86,6 @@ class Ghostses:
                 colorized[step] = whitespacedToken
             step+=1
         self.colorized[str(speech)] = colorized
-
 
 #########
 #########

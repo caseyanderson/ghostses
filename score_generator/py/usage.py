@@ -1,7 +1,7 @@
 test = Ghostses('corpus_mini.txt')
 test.readCorpus()
-test.getTokens()
-test.getPOS()
+# test.getTokens()
+# test.getPOS()
 
 #refactor the next two lines
 dctnry={}
