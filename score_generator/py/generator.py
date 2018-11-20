@@ -2,7 +2,7 @@
 TODO:
 1. function that looks at tokens and replaces things that arent spaces with items from colorized, check to make sure order is preserved
 2. sanitize final output function? something that checks for repeated/redundant tags and removes them
-3. new outputter, it should  just format the header, insert the content, and spit to the file, not anything else
+3. new outputter, it should  just format the header, insert the content, and output to the file, not do anything else
 
 ~less important~
 make a "get only words" function
@@ -73,9 +73,9 @@ class Ghostses:
             step = 0
             for y in self.pos:
                 if y[1] == x:
-                    print("found " + x + " at " + str(step) + " : " + y[0])
+                    # print("found " + x + " at " + str(step) + " : " + y[0])
                     colorizedToken = "<span class='" + str(speech) + "'>" + str(y[0]) + "</span>"
-                    colorized[step] = colorizedToken
+                    colori  zed[step] = colorizedToken
                 step+=1
         step = 0
         for z in colorized:
