@@ -17,9 +17,10 @@ class Ghostses:
         """ setup the object """
         self.filename = filename
         self.corpus = None # plaintext of the corpus
-        self.tokens = None # tokenized corpus
-        self.pos = None # tokenized corpus with parts of speech [token, pos]
         self.whitespace = False # defaults to False, True if tokenization preserves whitespace
+        self.tokens = None # tokenized corpus (may contain spaces)
+        self.words = None # all words from corpus (not yet in use)
+        self.pos = None # tokenized corpus with parts of speech [token, pos]
         self.colorized = {} # dict to store the colorized parts of speech
 
 
@@ -40,11 +41,20 @@ class Ghostses:
 
 
     def getPOS(self):
-        """ run parts of speech analysis on tokens
+        """ filter out whitespace (if there is any) from tokens
+            run parts of speech analysis on non-whitespace tokens
             converts and stores output as 2d list
-            [ token, pos ] """
-        pos = nltk.pos_tag(self.tokens)
-        self.pos = list(map(list, pos))
+            [ token, pos ] at self.pos """
+        pos_prep = []
+        if self.whitespace == False:
+            pos = nltk.pos_tag(self.tokens)
+            self.pos = list(map(list, pos))
+        elif self.whitespace == True:
+            for i in self.tokens:
+                if i.isspace() != True:
+                    pos_prep.append(i)
+            pos = nltk.pos_tag(pos_prep)
+            self.pos = list(map(list, pos))
 
 
     def colorizer(self, spch, dct):
