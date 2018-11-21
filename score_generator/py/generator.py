@@ -44,6 +44,7 @@ class Ghostses:
 
     def getPOS(self):
         """ filter out whitespace (if there is any) from tokens
+            output whitespace, in original location, to self.spaces
             run parts of speech analysis on non-whitespace tokens
             converts and stores output as 2d list
             [ token, pos ] at self.pos """
@@ -56,7 +57,7 @@ class Ghostses:
             self.spaces = [None] * size
             step = 0
             for i in self.tokens:
-                if i.isspace() != True: # tokens that are spaces go in a separate list that preserves location
+                if i.isspace() != True:
                     pos_prep.append(i)
                 else:
                     self.spaces[step] = i
