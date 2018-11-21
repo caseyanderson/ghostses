@@ -1,8 +1,7 @@
 """
 TODO:
-1. function that looks at tokens and replaces things that arent spaces with items from colorized, check to make sure order is preserved
-2. sanitize final output function? something that checks for repeated/redundant tags and removes them
-3. new outputter, it should  just format the header, insert the content, and output to the file, not do anything else
+1. sanitize final output function? something that checks for repeated/redundant tags and removes them
+2. new outputter, it should  just format the header, insert the content, and output to the file, not do anything else
 
 ~less important~
 make a "get only words" function
