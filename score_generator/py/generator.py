@@ -20,6 +20,7 @@ class Ghostses:
         self.corpus = None # plaintext of the corpus
         self.whitespace = False # defaults to False, True if tokenization preserves whitespace
         self.tokens = None # tokenized corpus (may contain spaces)
+        self.spaces = None
         self.words = None # all words from corpus (not yet in use)
         self.pos = None # tokenized corpus with parts of speech [token, pos]
         self.colorized = {} # dict to store the colorized parts of speech
@@ -51,9 +52,15 @@ class Ghostses:
             pos = nltk.pos_tag(self.tokens)
             self.pos = list(map(list, pos))
         elif self.whitespace == True:
+            size = len(self.tokens)
+            self.spaces = [None] * size
+            step = 0
             for i in self.tokens:
-                if i.isspace() != True: # filters out tokens that are spaces
+                if i.isspace() != True: # tokens that are spaces go in a separate list that preserves location
                     pos_prep.append(i)
+                else:
+                    self.spaces[step] = i
+                step+=1
             pos = nltk.pos_tag(pos_prep)
             self.pos = list(map(list, pos))
 
@@ -75,7 +82,7 @@ class Ghostses:
                 if y[1] == x:
                     # print("found " + x + " at " + str(step) + " : " + y[0])
                     colorizedToken = "<span class='" + str(speech) + "'>" + str(y[0]) + "</span>"
-                    colori  zed[step] = colorizedToken
+                    colorized[step] = colorizedToken
                 step+=1
         step = 0
         for z in colorized:
