@@ -97,7 +97,8 @@ class Ghostses:
 
 
     def assembler(self, partofspeech):
-        """ recombines self.spaces and self.colorized[partofspeech] and updates self.colorized[partofspeech]
+        """ recombines self.spaces with self.colorized[partofspeech]
+            updates self.colorized[partofspeech]
         """
         thepart = partofspeech
         colorized = self.colorized[str(thepart)] # get a local copy of colorized output
@@ -106,7 +107,7 @@ class Ghostses:
         step = 0
         for i in spaces:
             if i != " ":
-                print('get a token from self.pos ')
+                # print('get a token from self.pos ')
                 spaces[step] = colorized[0]
                 colorized.pop(0)
             step+=1
