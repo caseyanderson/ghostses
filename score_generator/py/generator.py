@@ -20,7 +20,7 @@ class Ghostses:
         self.corpus = None # plaintext of the corpus
         self.whitespace = False # defaults to False, True if tokenization preserves whitespace
         self.tokens = None # tokenized corpus (may contain spaces)
-        self.spaces = None
+        self.spaces = None # store location of spaces if tokenization preserves whitespace
         self.words = None # all words from corpus (not yet in use)
         self.pos = None # tokenized corpus with parts of speech [token, pos]
         self.colorized = {} # dict to store the colorized parts of speech
@@ -94,6 +94,23 @@ class Ghostses:
                 colorized[step] = whitespacedToken
             step+=1
         self.colorized[str(speech)] = colorized
+
+
+    def assembler(self, partofspeech):
+        """ recombines self.spaces and self.colorized[partofspeech] and updates self.colorized[partofspeech]
+        """
+        thepart = partofspeech
+        colorized = self.colorized[str(thepart)] # get a local copy of colorized output
+        spaces = self.spaces
+
+        step = 0
+        for i in spaces:
+            if i != " ":
+                print('get a token from self.pos ')
+                spaces[step] = colorized[0]
+                colorized.pop(0)
+            step+=1
+        self.colorized[str(thepart)] = spaces
 
 #########
 #########
