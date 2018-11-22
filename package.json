@@ -1,16 +1,24 @@
 {
   "name": "ghostses",
-  "version": "0.1.0",
-  "author": "Casey Anderson",
+  "version": "2.0.0",
+  "description": "*a duo*",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/caseyanderson/ghostses"
+    "url": "git+https://github.com/caseyanderson/ghostses.git"
   },
-  "dependencies": {},
+  "author": "Casey Anderson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caseyanderson/ghostses/issues"
+  },
+  "homepage": "https://github.com/caseyanderson/ghostses#readme",
   "devDependencies": {
-    "gulp": "latest",
-    "gulp-connect": "latest",
-    "gulp-open": "latest",
-    "gulp-sass": "latest"
-  }
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.6.1"
+  },
+  "dependencies": {}
 }
