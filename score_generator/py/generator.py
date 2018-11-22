@@ -20,9 +20,9 @@ class Ghostses:
         self.whitespace = False # defaults to False, True if tokenization preserves whitespace
         self.tokens = None # tokenized corpus (may contain spaces)
         self.spaces = None # store location of spaces if tokenization preserves whitespace
-        self.words = None # all words from corpus (not yet in use)
         self.pos = None # tokenized corpus with parts of speech [token, pos]
         self.colorized = {} # dict to store the colorized parts of speech
+        self.words = None # all words from corpus (not yet in use)
 
 
     def readCorpus(self):
