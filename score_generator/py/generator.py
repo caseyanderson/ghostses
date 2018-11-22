@@ -88,7 +88,7 @@ class Ghostses:
         for z in colorized:
             if z == None:
                 word = self.pos[step][0]
-                print(word)
+#                 print(word)
                 whitespacedToken = "<span class='whitespace'>" + str(word) + "</span>"
                 colorized[step] = whitespacedToken
             step+=1
@@ -112,6 +112,36 @@ class Ghostses:
             step+=1
         self.colorized[str(thepart)] = spaces
 
+
+    def renderer(self, partofspeech):
+
+        thepart = str(partofspeech)
+        thedir = "/Users/cta/werk/ghostses/score_generator/html/"
+        body = ''
+        head="""
+        <!DOCTYPE html>
+        <html>
+        <head>
+        <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
+        <link rel="stylesheet" href="/css/print.css" media ="print" type="text/css"/>
+        </head>
+        <body>
+        """
+
+        bottom ="""
+        </body>
+        </html>
+        """
+
+        filename = thedir+thepart+'.html'
+        o = open(filename, "w")
+
+        for i in self.colorized[thepart]:
+            body+=i
+        contents = head+body+bottom
+        o.write(contents)
+        o.close()
+
 #########
 #########
 #########
@@ -125,8 +155,8 @@ def outputer(filename, corpus):
     top ="""
     <html>
     <head>
-    <link rel="stylesheet" href="/score_generator/css/styles.css" type="text/css"/>
-    <link rel="stylesheet" href="/score_generator/css/print.css" media ="print" type="text/css"/>
+    <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
+    <link rel="stylesheet" href="/css/print.css" media ="print" type="text/css"/>
     </head>
     <body>
     """
