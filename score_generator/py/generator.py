@@ -1,7 +1,6 @@
 """
 TODO:
-1. sanitize final output function? something that checks for repeated/redundant tags and removes them
-2. new outputter, it should  just format the header, insert the content, and output to the file, not do anything else
+1. need something that checks for repeated/redundant tags and removes them
 
 ~less important~
 make a "get only words" function
