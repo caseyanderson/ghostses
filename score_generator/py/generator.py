@@ -115,7 +115,7 @@ class Ghostses:
     def renderer(self, partofspeech):
 
         thepart = str(partofspeech)
-        thedir = "/Users/cta/werk/ghostses/score_generator/html/"
+        thedir = "../html/"
         body = ''
         head="""
         <!DOCTYPE html>

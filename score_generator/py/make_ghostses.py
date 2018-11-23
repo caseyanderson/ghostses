@@ -14,7 +14,7 @@ import argparse
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument("--crps", type=str, default="corpus.txt",
+    parser.add_argument("--crps", type=str, default="../../txts/ch1_RoS/ch1_RoS_edited.txt",
                         help="the corpus")
     parser.add_argument("--ws", type=bool, default=False,
                         help="preserve whitespace")
