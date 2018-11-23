@@ -1,5 +1,5 @@
 # making ghostses
-
+from generator import *
 
 ## setup
 
