@@ -11,7 +11,7 @@ sections are created by stacking two or more foreground layers on top of a backg
 
 actions are dictated by pairs of words on the same foreground sheet. For example:
 
-![](score_generator/imgs/example.png)
+![](layer_generator/imgs/example.png)
 
 in the example above the first noun (Janine) indicates the start of radio action which may continue until a second noun (surgeon), the utterance of which demarcates an end to radio action.
 
