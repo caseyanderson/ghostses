@@ -40,3 +40,4 @@ package-lock.json
 # ipython
 .ipynb_checkpoints
 *.ipynb
+__pycache__
