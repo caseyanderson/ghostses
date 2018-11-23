@@ -44,4 +44,4 @@ __pycache__
 
 
 # ignore html file output
-/score_generator/html/
+score_generator/html
