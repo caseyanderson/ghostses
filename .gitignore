@@ -41,3 +41,7 @@ package-lock.json
 .ipynb_checkpoints
 *.ipynb
 __pycache__
+
+
+# ignore html file output
+/score_generator/html/
