@@ -4,7 +4,7 @@
 make ghostses, fall 2018
 Casey anderson
 
-to run: python3 usage_exe.py --ws True
+to run: python3 make_ghostses.py --ws True
 
 '''
 
