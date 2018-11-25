@@ -2,9 +2,6 @@
 TODO:
 1. need something that checks for repeated/redundant tags and removes them
 
-~less important~
-make a "get only words" function
-
 """
 
 import itertools
@@ -21,7 +18,6 @@ class Ghostses:
         self.spaces = None # store location of spaces if tokenization preserves whitespace
         self.pos = None # tokenized corpus with parts of speech [token, pos]
         self.colorized = {} # dict to store the colorized parts of speech
-        self.words = None # all words from corpus (not yet in use)
 
 
     def readCorpus(self):
