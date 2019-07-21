@@ -1,4 +1,8 @@
 """
+ghostses (score generator) by Casey Anderson
+
+usage: python3 generator.py --ws True
+
 TODO:
 1. need something that checks for repeated/redundant tags and removes them
 
