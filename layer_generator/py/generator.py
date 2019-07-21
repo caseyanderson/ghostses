@@ -6,11 +6,12 @@ TODO:
 
 import itertools
 import nltk
+import argparse
 
 class Ghostses:
 
     def __init__(self, filename):
-        """ setup the object """
+        """ setup a ghostses object """
         self.filename = filename
         self.corpus = None # plaintext of the corpus
         self.whitespace = False # defaults to False, True if tokenization preserves whitespace
@@ -117,8 +118,8 @@ class Ghostses:
         <!DOCTYPE html>
         <html>
         <head>
-        <link rel="stylesheet" href="/css/styles.css" type="text/css"/>
-        <link rel="stylesheet" href="/css/print.css" media ="print" type="text/css"/>
+        <link rel="stylesheet" href="../css/styles.css" type="text/css"/>
+        <link rel="stylesheet" href="../css/print.css" media ="print" type="text/css"/>
         </head>
         <body>
         """
@@ -136,3 +137,45 @@ class Ghostses:
         contents = head+body+bottom
         o.write(contents)
         o.close()
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--crps", type=str, default="../../corpora/ch1_RoS/ch1_RoS_edited.txt",
+                        help="the corpus")
+    parser.add_argument("--ws", type=bool, default=False,
+                        help="preserve whitespace")
+    args = parser.parse_args()
+
+    ## setup
+
+    score = Ghostses(args.crps) # make the score text object, set the corpus filepath
+    score.readCorpus() # read the corpus into object
+    score.getTokens(spaces=args.ws) # get tokens and preserve spaces
+    score.getPOS() # perform parts of speech analysis on non-whitespace tokens
+
+
+    # make the colorizer dictionary
+
+    dctnry={}
+    keys = ['noun', 'adj', 'vrb', 'advrb','symb', 'background']
+
+    # possible tags per each part of speech category
+
+    dctnry['noun'] = [ 'NN', 'NNP', 'NNPS', 'NNS']
+    dctnry['adj'] = ['JJ', 'JJR', 'JJS']
+    dctnry['vrb'] = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
+    dctnry['advrb'] = ['RB', 'RBR', 'RBS']
+    dctnry['background'] = ['CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'LS', 'MD', 'PDT', 'POS', 'PRP', 'PRP$', 'RP', 'SYM', 'TO', 'UH', 'WDT', 'WP', 'WP$', 'WRP']
+    dctnry['symb'] = ['$', "''", '(', ')', ',', '--', '.', ':', "''" ]
+
+    # make all of the layers, output to /layer_generator/html/
+
+    for i in keys:
+        print('making ' + str(i))
+        score.colorizer(str(i), dctnry) # add html tags
+        score.assembler(str(i)) # combine spaces with processed list
+        score.renderer(str(i)) # format and write the html file
+
+if __name__ == '__main__':
+    main()
+
