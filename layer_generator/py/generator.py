@@ -143,6 +143,7 @@ class Ghostses:
         o.close()
 
 def main():
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--crps", type=str, default="../../corpora/ch1_RoS/ch1_RoS_edited.txt",
                         help="the corpus")
