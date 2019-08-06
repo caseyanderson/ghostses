@@ -182,7 +182,7 @@ def main():
     # make the colorizer dictionary
 
     dctnry={}
-    keys = ['noun', 'adj', 'vrb', 'advrb','symb', 'background']
+    keys = ['noun', 'adj', 'vrb', 'advrb', 'background', 'symb']
     tags = [
         [ 'NN', 'NNP', 'NNPS', 'NNS'],
         ['JJ', 'JJR', 'JJS'],
