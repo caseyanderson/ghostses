@@ -114,20 +114,20 @@ class Ghostses:
                 colorized.pop(0)
             step+=1
         self.colorized[str(thepart)] = spaces
-    
-    
+
+
     def proto(self):
         """ makes a prototyping directory, labeled with corpus stem + date and time
             changes directories into stem-datetime
         """
         thedir = "/Users/cta/werk/ghostses/layer_generator/html/"
-  
+
         proto = datetime.now().strftime("%m%d%Y_%H%M%S")
         name = Path(self.filename).stem
         path = "".join([str(name), "_", str(proto)])
-        
+
         os.chdir(thedir)
-        
+
         try:
             os.mkdir(path)
         except OSError:
@@ -135,8 +135,8 @@ class Ghostses:
         else:
             print ("Successfully created the directory %s " % path)
         os.chdir(path)
-    
-    
+
+
     def renderer(self, partofspeech):
 
         thepart = str(partofspeech)
@@ -155,7 +155,7 @@ class Ghostses:
         </body>
         </html>
         """
-        
+
         filename = thepart+'.html'
         o = open(filename, "w")
 
@@ -181,10 +181,7 @@ def main():
     score.readCorpus() # read the corpus into object
     score.getTokens(spaces=args.ws) # get tokens and preserve spaces
     score.getPOS() # perform parts of speech analysis on non-whitespace tokens
-    
-    # make the prototype dir
-    
-    score.proto()
+    score.proto() # make the prototype dir
 
     # make the colorizer dictionary
 
@@ -200,7 +197,7 @@ def main():
     dctnry['background'] = ['CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'LS', 'MD', 'PDT', 'POS', 'PRP', 'PRP$', 'RP', 'SYM', 'TO', 'UH', 'WDT', 'WP', 'WP$', 'WRP']
     dctnry['symb'] = ['$', "''", '(', ')', ',', '--', '.', ':', "''" ]
 
-    # make all of the layers, output to /layer_generator/html/
+    # make all of the layers, output to proto dir
 
     for i in keys:
         print('making ' + str(i))
