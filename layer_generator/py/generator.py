@@ -8,6 +8,9 @@ TODO:
 
 """
 
+from datetime import datetime
+from pathlib import Path
+import os
 import itertools
 import nltk
 import argparse
@@ -111,19 +114,39 @@ class Ghostses:
                 colorized.pop(0)
             step+=1
         self.colorized[str(thepart)] = spaces
-
-
+    
+    
+    def proto(self):
+        """ makes a prototyping directory, labeled with corpus stem + date and time
+            changes directories into stem-datetime
+        """
+        thedir = "/Users/cta/werk/ghostses/layer_generator/html/"
+  
+        proto = datetime.now().strftime("%m%d%Y_%H%M%S")
+        name = Path(self.filename).stem
+        path = "".join([str(name), "_", str(proto)])
+        
+        os.chdir(thedir)
+        
+        try:
+            os.mkdir(path)
+        except OSError:
+            print ("Creation of the directory %s failed" % path)
+        else:
+            print ("Successfully created the directory %s " % path)
+        os.chdir(path)
+    
+    
     def renderer(self, partofspeech):
 
         thepart = str(partofspeech)
-        thedir = "../html/"
         body = ''
         head="""
         <!DOCTYPE html>
         <html>
         <head>
-        <link rel="stylesheet" href="../css/styles.css" type="text/css"/>
-        <link rel="stylesheet" href="../css/print.css" media ="print" type="text/css"/>
+        <link rel="stylesheet" href="../../css/styles.css" type="text/css"/>
+        <link rel="stylesheet" href="../../css/print.css" media ="print" type="text/css"/>
         </head>
         <body>
         """
@@ -132,8 +155,8 @@ class Ghostses:
         </body>
         </html>
         """
-
-        filename = thedir+thepart+'.html'
+        
+        filename = thepart+'.html'
         o = open(filename, "w")
 
         for i in self.colorized[thepart]:
@@ -141,6 +164,7 @@ class Ghostses:
         contents = head+body+bottom
         o.write(contents)
         o.close()
+
 
 def main():
 
@@ -157,7 +181,10 @@ def main():
     score.readCorpus() # read the corpus into object
     score.getTokens(spaces=args.ws) # get tokens and preserve spaces
     score.getPOS() # perform parts of speech analysis on non-whitespace tokens
-
+    
+    # make the prototype dir
+    
+    score.proto()
 
     # make the colorizer dictionary
 
@@ -183,4 +210,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
