@@ -113,7 +113,7 @@ class Ghostses:
 
 
     def proto(self):
-        """ makes a prototyping directory, labeled with corpus stem + date and time
+        """ makes a prototyping directory, labeled with corpus stem-datetime
             changes directories into stem-datetime
         """
         thedir = "/Users/cta/werk/ghostses/layer_generator/html/"
@@ -180,7 +180,7 @@ def main():
     score.proto() # make the prototype dir
 
     # make the colorizer dictionary
-    
+
     dctnry={}
     keys = ['noun', 'adj', 'vrb', 'advrb','symb', 'background']
     tags = [
@@ -191,7 +191,7 @@ def main():
         ['CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'LS', 'MD', 'PDT', 'POS', 'PRP', 'PRP$', 'RP', 'SYM', 'TO', 'UH', 'WDT', 'WP', 'WP$', 'WRP'],
         ['$', "''", '(', ')', ',', '--', '.', ':', "''" ]
     ]
-    
+
     for x, y in zip(keys, tags):
         dctnry[x] = y
 
