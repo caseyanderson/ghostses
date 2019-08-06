@@ -79,11 +79,9 @@ class Ghostses:
         size = len(self.pos)
         colorized = [None] * size
         for x in labels[speech]:
-            # print("looking for " + x)
             step = 0
             for y in self.pos:
                 if y[1] == x:
-                    # print("found " + x + " at " + str(step) + " : " + y[0])
                     colorizedToken = "<span class='" + str(speech) + "'>" + str(y[0]) + "</span>"
                     colorized[step] = colorizedToken
                 step+=1
@@ -91,7 +89,6 @@ class Ghostses:
         for z in colorized:
             if z == None:
                 word = self.pos[step][0]
-#                 print(word)
                 whitespacedToken = "<span class='whitespace'>" + str(word) + "</span>"
                 colorized[step] = whitespacedToken
             step+=1
@@ -109,7 +106,6 @@ class Ghostses:
         step = 0
         for i in spaces:
             if i != " ":
-                # print('get a token from self.pos ')
                 spaces[step] = colorized[0]
                 colorized.pop(0)
             step+=1
@@ -184,18 +180,20 @@ def main():
     score.proto() # make the prototype dir
 
     # make the colorizer dictionary
-
+    
     dctnry={}
     keys = ['noun', 'adj', 'vrb', 'advrb','symb', 'background']
-
-    # possible tags per each part of speech category
-
-    dctnry['noun'] = [ 'NN', 'NNP', 'NNPS', 'NNS']
-    dctnry['adj'] = ['JJ', 'JJR', 'JJS']
-    dctnry['vrb'] = ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ']
-    dctnry['advrb'] = ['RB', 'RBR', 'RBS']
-    dctnry['background'] = ['CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'LS', 'MD', 'PDT', 'POS', 'PRP', 'PRP$', 'RP', 'SYM', 'TO', 'UH', 'WDT', 'WP', 'WP$', 'WRP']
-    dctnry['symb'] = ['$', "''", '(', ')', ',', '--', '.', ':', "''" ]
+    tags = [
+        [ 'NN', 'NNP', 'NNPS', 'NNS'],
+        ['JJ', 'JJR', 'JJS'],
+        ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'],
+        ['RB', 'RBR', 'RBS'],
+        ['CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'LS', 'MD', 'PDT', 'POS', 'PRP', 'PRP$', 'RP', 'SYM', 'TO', 'UH', 'WDT', 'WP', 'WP$', 'WRP'],
+        ['$', "''", '(', ')', ',', '--', '.', ':', "''" ]
+    ]
+    
+    for x, y in zip(keys, tags):
+        dctnry[x] = y
 
     # make all of the layers, output to proto dir
 
