@@ -120,7 +120,7 @@ class Ghostses:
 
         proto = datetime.now().strftime("%m%d%Y_%H%M%S")
         name = Path(self.filename).stem
-        path = "".join([str(name), "_", str(proto)])
+        path = "".join([str(name), "-", str(proto)])
 
         os.chdir(thedir)
 
