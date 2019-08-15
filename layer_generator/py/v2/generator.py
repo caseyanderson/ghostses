@@ -18,12 +18,20 @@ import argparse
 class Ghostses:
 
     def __init__(self, filename):
-        """ make a ghostses object
-            read the corpus into object
-        """
+        """ setup a ghostses object """
         self.filename = filename
+        self.corpus = None # plaintext of the corpus
+        self.whitespace = False # defaults to False, True if tokenization preserves whitespace
+        self.tokens = None # tokenized corpus (may contain spaces)
+        self.spaces = None # store location of spaces if tokenization preserves whitespace
+        self.pos = None # tokenized corpus with parts of speech [token, pos]
+        self.colorized = {} # dict to store the colorized parts of speech
+
+
+    def readCorpus(self):
+        """ read the corpus into object """
         f = open(str(self.filename), 'r')
-        self.corpus = f.read() # plaintext of the corpus
+        self.corpus = f.read()
 
 
     def getTokens(self, spaces = False):
@@ -66,7 +74,6 @@ class Ghostses:
             all other words are wrapped in whitespace <span>
             output to dict at self.colorized
         """
-        self.colorized = {} # make the output dictionary
         labels = dct
         speech = spch
         size = len(self.pos)
@@ -157,7 +164,6 @@ class Ghostses:
 
 def main():
 
-    # parse command line arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("--crps", type=str, default="../../corpora/ch1_RoS/ch1_RoS_edited.txt",
                         help="the corpus")
@@ -165,13 +171,16 @@ def main():
                         help="preserve whitespace")
     args = parser.parse_args()
 
-    # setup
-    score = Ghostses(args.crps) # make score object, set corpus filepath, read corpus into object
+    ## setup
+
+    score = Ghostses(args.crps) # make the score text object, set the corpus filepath
+    score.readCorpus() # read the corpus into object
     score.getTokens(spaces=args.ws) # get tokens and preserve spaces
     score.getPOS() # perform parts of speech analysis on non-whitespace tokens
     score.proto() # make the prototype dir
 
     # make the colorizer dictionary
+
     dctnry={}
     keys = ['noun', 'adj', 'vrb', 'advrb', 'background', 'symb']
     tags = [
@@ -187,6 +196,7 @@ def main():
         dctnry[x] = y
 
     # make all of the layers, output to proto dir
+
     for i in keys:
         print('making ' + str(i))
         score.colorizer(str(i), dctnry) # add html tags
