@@ -26,16 +26,16 @@ footer {
 .noun {
   color: red; }
 
-.adj {
+.adjective {
   color: blue; }
 
-.vrb {
+.verb {
   color: green; }
 
-.advrb {
+.adverb {
   color: orange; }
 
-.symb {
+.symbol {
   color: purple; }
 
 .background {
