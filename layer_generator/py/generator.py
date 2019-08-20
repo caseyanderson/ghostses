@@ -26,14 +26,14 @@ class Ghostses:
         self.corpus = f.read() # plaintext of the corpus
 
 
-    def getTokens(self, spaces = False):
+    def getTokens(self, preserveSpaces = False):
         """ tokenize corpus """
-        if spaces == False:
+        if preserveSpaces == False:
             self.tokens = nltk.word_tokenize(str(self.corpus))
-        elif spaces == True:
+        elif preserveSpaces == True:
             temp = [[nltk.word_tokenize(w), ' '] for w in self.corpus.split()]
             self.tokens = list(itertools.chain(*list(itertools.chain(*temp))))
-            self.whitespace = True
+            self.preserveSpaces = True
 
 
     def getPOS(self):
@@ -43,10 +43,10 @@ class Ghostses:
             converts and stores output as 2d list
             [ token, pos ] at self.pos """
         pos_prep = []
-        if self.whitespace == False:
+        if self.preserveSpaces == False:
             pos = nltk.pos_tag(self.tokens)
             self.pos = list(map(list, pos))
-        elif self.whitespace == True:
+        elif self.preserveSpaces == True:
             size = len(self.tokens)
             self.spaces = [None] * size
             step = 0
@@ -60,15 +60,15 @@ class Ghostses:
             self.pos = list(map(list, pos))
 
 
-    def colorizer(self, spch, dct):
+    def colorizer(self, partOfSpeech, tags):
         """ get NLTK tags for part of speech
             find all words that match part of speech and wrap matches in color <span>
             all other words are wrapped in whitespace <span>
             output to dict at self.colorized
         """
         self.colorized = {} # make the output dictionary
-        labels = dct
-        speech = spch
+        labels = tags
+        speech = partOfSpeech
         size = len(self.pos)
         colorized = [None] * size
         for x in labels[speech]:
@@ -88,11 +88,11 @@ class Ghostses:
         self.colorized[str(speech)] = colorized
 
 
-    def assembler(self, partofspeech):
+    def assembler(self, partOfSpeech):
         """ recombines self.spaces with self.colorized[partofspeech]
             updates self.colorized[partofspeech]
         """
-        thepart = partofspeech
+        thepart = partOfSpeech
         colorized = self.colorized[str(thepart)] # get a local copy of colorized output
         spaces = self.spaces
 
@@ -167,29 +167,29 @@ def main():
 
     # setup
     score = Ghostses(args.crps) # make score object, set corpus filepath, read corpus into object
-    score.getTokens(spaces=args.ws) # get tokens and preserve spaces
+    score.getTokens(preserveSpaces=args.ws) # get tokens and preserve spaces
     score.getPOS() # perform parts of speech analysis on non-whitespace tokens
     score.proto() # make the prototype dir
 
-    # make the colorizer dictionary
-    dctnry={}
-    keys = ['noun', 'adj', 'vrb', 'advrb', 'background', 'symb']
+    # make the posKeysTags dictionary
+    posKeysTags={}
+    keys = ['noun', 'adjective', 'verb', 'adverb', 'background', 'symbol']
     tags = [
-        [ 'NN', 'NNP', 'NNPS', 'NNS'],
-        ['JJ', 'JJR', 'JJS'],
-        ['VB', 'VBD', 'VBG', 'VBN', 'VBP', 'VBZ'],
-        ['RB', 'RBR', 'RBS'],
-        ['CC', 'CD', 'DT', 'EX', 'FW', 'IN', 'LS', 'MD', 'PDT', 'POS', 'PRP', 'PRP$', 'RP', 'SYM', 'TO', 'UH', 'WDT', 'WP', 'WP$', 'WRP'],
-        ['$', "''", '(', ')', ',', '--', '.', ':', "''" ]
-    ]
+        ['NN','NNP','NNPS','NNS'],
+        ['JJ','JJR','JJS'],
+        ['VB','VBD','VBG','VBN','VBP','VBZ'],
+        ['RB','RBR','RBS','WRB'],
+        ['CC','CD','DT','EX','FW','IN','LS','MD','PDT','POS','PRP','PRP$','RP','TO','UH','WDT','WP','WP$'],
+        ['$',"''",'(',')',',','--','.',':','SYM',"``"]
+    ]  
 
     for x, y in zip(keys, tags):
-        dctnry[x] = y
+        posKeysTags[x] = y
 
     # make all of the layers, output to proto dir
     for i in keys:
         print('making ' + str(i))
-        score.colorizer(str(i), dctnry) # add html tags
+        score.colorizer(str(i), posKeysTags) # add html tags
         score.assembler(str(i)) # combine spaces with processed list
         score.renderer(str(i)) # format and write the html file
 
