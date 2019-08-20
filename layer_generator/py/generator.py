@@ -126,9 +126,9 @@ class Ghostses:
         os.chdir(path)
 
 
-    def renderer(self, partofspeech):
+    def renderer(self, partOfSpeech):
 
-        thepart = str(partofspeech)
+        pos = str(partOfSpeech)
         body = ''
         head="""
         <!DOCTYPE html>
@@ -145,10 +145,10 @@ class Ghostses:
         </html>
         """
 
-        filename = thepart+'.html'
+        filename = pos+'.html'
         o = open(filename, "w")
 
-        for i in self.colorized[thepart]:
+        for i in self.colorized[pos]:
             body+=i
         contents = head+body+bottom
         o.write(contents)
