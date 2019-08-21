@@ -181,7 +181,7 @@ def main():
         ['RB','RBR','RBS','WRB'],
         ['CC','CD','DT','EX','FW','IN','LS','MD','PDT','POS','PRP','PRP$','RP','TO','UH','WDT','WP','WP$'],
         ['$',"''",'(',')',',','--','.',':','SYM',"``"]
-    ]  
+    ]
 
     for x, y in zip(keys, tags):
         posKeysTags[x] = y
