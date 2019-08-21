@@ -1,46 +1,32 @@
-'use strict';
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const browserSync = require('browser-sync').create();
 
-var os = require('os');
-var gulp = require('gulp');
-var connect = require('gulp-connect');
-var sass = require('gulp-sass');
-var open = require('gulp-open');
+// compile scss into css
+function style(){
+  // find scss file
+  return gulp.src('./layer_generator/scss/**/*.scss')
+  // pass that file through sass compiler
+  .pipe(sass().on('error', sass.logError))
+  // where do i save compiled css
+  .pipe(gulp.dest('./layer_generator/css/'))
+  // stream changes to all browsers
+  .pipe(browserSync.stream());
+}
 
-sass.compiler = require('node-sass');
 
-gulp.task('connect', function() {
-  connect.server({
-    root: 'layer_generator',
-    livereload: true
+// watch for changes in scss or html
+function watch(){
+  browserSync.init({
+    server: {
+      baseDir: './layer_generator/',
+      directory: true
+    }
   });
-});
-
-gulp.task('html', function () {
-  gulp.src('./layer_generator/html/*.html')
-    .pipe(gulp.dest('./layer_generator/html/'))
-    .pipe(connect.reload());
-});
-
-gulp.task('watch', function () {
-  gulp.watch(['./layer_generator/html/*.html'], ['html']);
-});
+  gulp.watch('./layer_generator/scss/**/*.scss', style);
+  gulp.watch('./layer_generator/html/**/*.html').on('change', browserSync.reload);
+}
 
 
-gulp.task('sass', function () {
-  return gulp.src('./layer_generator/scss/*.scss')
-    .pipe(sass.sync().on('error', sass.logError))
-    .pipe(gulp.dest('./layer_generator/css'))
-    .pipe(connect.reload());
-});
-
-gulp.task('sass:watch', function () {
-  gulp.watch('./layer_generator/scss/*.scss', ['sass']);
-});
-
-
-gulp.task('open', function() {
-  gulp.src('')
-    .pipe(open({uri: 'http://localhost:8080/html/'}));
-});
-
-gulp.task('default', ['open', 'connect', 'watch', 'sass:watch']);
+exports.style = style;
+exports.watch = watch;
