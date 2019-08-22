@@ -1,7 +1,7 @@
 {
   "name": "ghostses",
-  "version": "1.0.0",
-  "description": "the software",
+  "version": "9.0.0",
+  "description": "the software to generate the score to ghostses",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,5 +20,6 @@
   "bugs": {
     "url": "https://github.com/caseyanderson/ghostses/issues"
   },
-  "homepage": "https://github.com/caseyanderson/ghostses#readme"
+  "homepage": "https://github.com/caseyanderson/ghostses#readme",
+  "dependencies": {}
 }
