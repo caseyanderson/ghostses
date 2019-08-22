@@ -1,10 +1,5 @@
 # ghostses
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/he6IRPglWMk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-<iframe style="border: 0; width: 100%; height: 120px;" src="https://bandcamp.com/EmbeddedPlayer/album=1247137697/size=large/bgcol=ffffff/linkcol=333333/tracklist=false/artwork=small/transparent=true/" seamless><a href="http://awavepress.bandcamp.com/album/bent-duo-presents-ghostses-by-casey-anderson">Bent Duo Presents ghostses by Casey Anderson by Bent Duo</a></iframe>
-
-
 ## an overview
 
 *ghostses* is a computationally generated deconstruction/distortion of W.G. Sebald’s *The Rings of Saturn* for two readers with a batterie of instruments (tuning forks, am/fm radios, harmonica/accordion, kitchen timers/bells, and toy percussion). It was commissioned by, and written for, the NYC-based Bent Duo (David Friend and Bill Solomon).
