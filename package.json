@@ -9,8 +9,11 @@
   "author": "Casey Anderson",
   "license": "MIT",
   "devDependencies": {
+    "autoprefixer": "^9.6.1",
     "browser-sync": "^2.26.7",
+    "cssnano": "^4.1.10",
     "gulp": "^4.0.2",
+    "gulp-postcss": "^8.0.0",
     "gulp-sass": "^4.0.2"
   },
   "repository": {
@@ -20,6 +23,5 @@
   "bugs": {
     "url": "https://github.com/caseyanderson/ghostses/issues"
   },
-  "homepage": "https://github.com/caseyanderson/ghostses#readme",
-  "dependencies": {}
+  "homepage": "https://github.com/caseyanderson/ghostses#readme"
 }
