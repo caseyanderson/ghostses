@@ -45,3 +45,6 @@ __pycache__
 
 # ignore html file output
 layer_generator/html/
+
+# ignore generated css
+layer_generator/css/
