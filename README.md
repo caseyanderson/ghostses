@@ -19,7 +19,7 @@ The software to produce *ghostses* is comprised of two interrelated parts:
 
 ### analyzing the corpus
 
-The [ghostses](layer_generator/py/ghostses.py) class reads a text file (the input corpus) into memory to prepare for `tokenization` and analysis (in Python 3 via `nltk`). One byproduct of `nltk` tokenization, however, is the removal of whitespace, a critical piece of the corpus required to reassemble the text after analysis. The class attribute `preserveSpaces` allows a programmer to indicate (`True` or `False`) whether whitespace should be preserved during execution of the `constructor method`. If `preserveSpaces` returns `False` `nltk` tokenization proceeds normally, removing and discarding whitespace from the corpus. If `preserveSpaces` returns `True`, as is required to produce a *ghostses* score, a class attribute (`spaces`) is created by `getPOS()` to store the location of all whitespace throughout the corpus.
+The [Ghostses](layer_generator/py/ghostses.py) class reads a text file (the input corpus) into memory to prepare for `tokenization` and analysis (in Python 3 via `nltk`). One byproduct of `nltk` tokenization, however, is the removal of whitespace, a critical piece of the corpus required to reassemble the text after analysis. The class attribute `preserveSpaces` allows a programmer to indicate (`True` or `False`) whether whitespace should be preserved during execution of the `constructor method`. If `preserveSpaces` returns `False` `nltk` tokenization proceeds normally, removing and discarding whitespace from the corpus. If `preserveSpaces` returns `True`, as is required to produce a *ghostses* score, a class attribute (`spaces`) is created by `getPOS()` to store the location of all whitespace throughout the corpus.
 
 
 ### gulp.js
