@@ -19,7 +19,7 @@ The software to produce *ghostses* is comprised of two interrelated parts:
 
 ### analyzing the corpus
 
-The `generator` class reads a text file (the input corpus) into memory. The corpus is then ready for tokenization and analysis via `nltk`. One byproduct of `nltk` tokenization, however, is the removal of whitespace, a critical piece of the corpus required to reassemble the text (prior to final rendering). The class attribute `self.preserveSpaces` allows a programmer to indicate (`True` or `False`) whether whitespace should be preserved during execution of the `constructor method`. If `preserveSpaces` returns `False` `nltk` tokenization proceeds as normal and removes whitespace from the corpus. If `preserveSpaces` returns `True`, as in the case of *ghostses*, a separate class attribute (`self.spaces`) is created to store the location of all whitespace throughout the corpus.
+The `generator` class reads a text file (the input corpus) into memory to prepare for tokenization and analysis (via `nltk`). One byproduct of `nltk` tokenization, however, is the removal of whitespace, a critical piece of the corpus required to reassemble the text after analysis. The class attribute `self.preserveSpaces` allows a programmer to indicate (`True` or `False`) whether whitespace should be preserved during execution of the `constructor method`. If `preserveSpaces` returns `False` `nltk` tokenization proceeds normal, removing and discarding whitespace from the corpus. If `preserveSpaces` returns `True`, as is required to produce a *ghostses* score, a class attribute (`self.spaces`) is created to store the location of all whitespace throughout the corpus.
 
 
 
