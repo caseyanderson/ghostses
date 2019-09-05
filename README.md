@@ -29,4 +29,15 @@ A dictionary of all tags, organized by categories (noun, adjective, verb, adverb
 
 The class method `assembler()` reconstructs the corpus by combining a tagged layer with `self.spaces`, ensuring that words are in the same location on each page regardless of how they are styled. The class method `proto()` creates a folder, labeled with the date, time, and corpus name, to easily allow for comparisons between generations (hence `proto()` or `prototype`). Finally, `renderer()` creates the output `html` files (one for every layer) and saves them to the directory produced by `proto()`.
 
+
 ### making the score
+
+Current procedure for creating the score:
+
+1. open all `.html` files in the directory created by `proto()` with a browser (Firefox, for exazmple)
+2. `File` > `Print` > `Save as PDF` (for every `.html` file)
+3. print every file with the **same** color printer
+    1. print background.pdf onto 8.5x11 white paper
+    2. print all other files onto 8.5x11 clear transparencies
+
+FYI: one copy of the full set of ghostses costs approximately $100 each ($200 total) to produce (whoops, heh).
