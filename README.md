@@ -14,7 +14,7 @@ When performing the piece each player silently reads the entire text of the Seba
 The software to produce *ghostses* is comprised of two interrelated parts:
 
 1. the input corpus is analyzed and regenerated to produce a variety of `html` files (formatted with span class tags)
-2. the html files are styled (via `scss`) and rendered to pdf (note: pdf rendering is currently manual)
+2. the html files are styled (via `scss`) and rendered to pdf (note: pdf rendering is currently manual) (*Note*: I currently use gulp.js w/ browser-sync [and some other plugins] to generate the `.css` from `.scss`, see [gulpfile.js](https://github.com/caseyanderson/ghostses/blob/master/gulpfile.js) for more info)
 
 
 ### analyzing and styling the corpus
