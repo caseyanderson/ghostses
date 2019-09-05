@@ -36,10 +36,10 @@ The class method `assembler()` reconstructs the corpus by combining a tagged lay
 
 Current procedure for creating the score:
 
-1. open all `.html` files in the directory created by `proto()` with a browser (Firefox, for exazmple)
+1. open all `.html` files in the directory created by `proto()` with a browser (Firefox, for example)
 2. `File` > `Print` > `Save as PDF` (for every `.html` file)
-3. print every file with the **same** color printer
-    1. print background.pdf onto 8.5x11 white paper
+3. print every `.pdf` file with the **same** color printer
+    1. print `background.pdf` onto 8.5x11 white paper
     2. print all other files onto 8.5x11 clear transparencies
 
 *Note* in the future converting `.html` to `.pdf` will be automatic
