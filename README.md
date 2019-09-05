@@ -27,9 +27,8 @@ Parts of speech categories often have more than one tag, though, so catching all
 
 A dictionary of all tags, organized by categories (noun, adjective, verb, adverb, background [unused portions of the text e.g. articles], and symbols [punctuation]) is created (`posKeysTags` [here](https://github.com/caseyanderson/ghostses/blob/6c117bbb8a26741df9531791ff66a92cb8c3b7cb/layer_generator/py/ghostses.py#L175-L187)) to feed `colorizer()` with the appropriate quantity of tags per parts of speech category, enabling one to generate a `noun` layer with the following: `score.colorizer('noun', posKeysTags)`. In `main()` we generate all layers at once with a [for loop](https://github.com/caseyanderson/ghostses/blob/6c117bbb8a26741df9531791ff66a92cb8c3b7cb/layer_generator/py/ghostses.py#L190-L194).
 
-The class method `assembler()` recostructs the corpus by combining the properly tagged layer with `self.spaces`, ensuring that words are in the same location on each page regardless of how they are styled. The class method `proto()` creates a folder, labeled with the date, time, and corpus name, to easily allow for comparisons between generations (hence `proto()` or `prototype`). Finally, `renderer()` creates the output html files (one for every layer) and saves them to the directory produced by `proto()`.
+The class method `assembler()` reconstructs the corpus by combining a tagged layer with `self.spaces`, ensuring that words are in the same location on each page regardless of how they are styled. The class method `proto()` creates a folder, labeled with the date, time, and corpus name, to easily allow for comparisons between generations (hence `proto()` or `prototype`). Finally, `renderer()` creates the output `html` files (one for every layer) and saves them to the directory produced by `proto()`.
 
 ### gulp.js
-
 
 ### making the score
