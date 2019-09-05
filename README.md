@@ -29,6 +29,4 @@ A dictionary of all tags, organized by categories (noun, adjective, verb, adverb
 
 The class method `assembler()` reconstructs the corpus by combining a tagged layer with `self.spaces`, ensuring that words are in the same location on each page regardless of how they are styled. The class method `proto()` creates a folder, labeled with the date, time, and corpus name, to easily allow for comparisons between generations (hence `proto()` or `prototype`). Finally, `renderer()` creates the output `html` files (one for every layer) and saves them to the directory produced by `proto()`.
 
-### gulp.js
-
 ### making the score
