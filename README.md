@@ -14,7 +14,9 @@ When performing the piece each player silently reads the entire text of the Seba
 The software to produce *ghostses* is comprised of two interrelated parts:
 
 1. the input corpus is analyzed and regenerated to produce a variety of `html` files (formatted with span class tags)
-2. the html files are styled (via `scss`) and rendered to pdf (note: pdf rendering is currently manual) (*Note*: I currently use gulp.js w/ browser-sync [and some other plugins] to generate the `.css` from `.scss`, see [gulpfile.js](https://github.com/caseyanderson/ghostses/blob/master/gulpfile.js) for more info)
+2. the html files are styled (via `scss`) and rendered to pdf (pdf rendering is currently manual)
+
+*Note*: I currently use gulp.js w/ browser-sync (and some other plugins) to generate the `.css` from `.scss`, see [gulpfile.js](https://github.com/caseyanderson/ghostses/blob/master/gulpfile.js) for more info
 
 
 ### analyzing and styling the corpus
@@ -40,4 +42,6 @@ Current procedure for creating the score:
     1. print background.pdf onto 8.5x11 white paper
     2. print all other files onto 8.5x11 clear transparencies
 
-FYI: one copy of the full set of ghostses costs approximately $100 each ($200 total) to produce (whoops, heh).
+*Note* in the future converting `.html` to `.pdf` will be automatic
+
+**FYI** one copy of a full set of ghostses costs approximately $100 each (it's a duo so $100 * 2 = $200 total) to produce (whoops, heh). Owning a color printer capable of printing onto transparencies *drastically* reduces the cost to produce
