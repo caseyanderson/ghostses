@@ -2,7 +2,7 @@
 
 ## an overview
 
-*ghostses* is a computationally generated deconstruction/distortion of W.G. Sebald’s *The Rings of Saturn* for two readers with a batterie of instruments (tuning forks, am/fm radios, harmonica/accordion, kitchen timers/bells, and toy percussion). It was commissioned by, and written for, the NYC-based Bent Duo (David Friend and Bill Solomon).
+*ghostses* is a computationally generated deconstruction/distortion of W.G. Sebald’s *The Rings of Saturn* for two readers with a batterie of instruments (tuning forks, am/fm radios, harmonica/accordion, kitchen timers/bells, and toy percussion). It was commissioned by, and written for, the NYC-based [Bent Duo](https://www.bentduo.com/) (David Friend and Bill Solomon).
 
 The corpus, (almost all of) Chapter 1 from the Sebald, is separated into multiple layers via a Python program, where each layer shows only one part of speech. Only nouns (printed in red) are visible on the noun layer, for example, and all other text is invisble (though still technically present), ensuring that stacks of multiple layers align properly to reproduce the original text. A reader’s part is created by stacking two or more transparencies on top of the background layer, containing all unused parts of speech from the Sebald and printed on white paper. Performers are free to arrange and rearrange their parts from performance-to-performance.
 
