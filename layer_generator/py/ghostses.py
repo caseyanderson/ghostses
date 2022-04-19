@@ -33,7 +33,7 @@ class Ghostses:
         elif preserveSpaces == True:
             temp = [[nltk.word_tokenize(w), ' '] for w in self.corpus.split()]
             self.tokens = list(itertools.chain(*list(itertools.chain(*temp))))
-            self.preserveSpaces = True
+        self.preserveSpaces = preserveSpaces
 
 
     def getPOS(self):
@@ -109,7 +109,8 @@ class Ghostses:
         """ makes a prototyping directory, labeled with corpus stem-datetime
             changes directories into stem-datetime
         """
-        thedir = "/Users/cta/werk/ghostses/layer_generator/html/"
+        #thedir = "/Users/cta/werk/ghostses/layer_generator/html/"
+        thedir = "layer_generator/html/"
 
         proto = datetime.now().strftime("%m%d%Y_%H%M%S")
         name = Path(self.filename).stem
