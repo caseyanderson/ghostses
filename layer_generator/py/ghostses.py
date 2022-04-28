@@ -3,8 +3,10 @@ ghostses (score generator) by Casey Anderson
 
 usage: python3 ghostses.py --ws True
 
-TODO:
-1. need something that checks for repeated/redundant tags and removes them
+note: this class has been archived,
+new work that builds on ghostses is
+currently in opera.py and will
+eventually be in a new repo
 
 """
 
@@ -110,7 +112,7 @@ class Ghostses:
             changes directories into stem-datetime
         """
         #thedir = "/Users/cta/werk/ghostses/layer_generator/html/"
-        thedir = "layer_generator/html/"
+        thedir = "/home/cta/ghostses/layer_generator/html/"
 
         proto = datetime.now().strftime("%m%d%Y_%H%M%S")
         name = Path(self.filename).stem
@@ -160,7 +162,7 @@ def main():
 
     # parse command line arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("--crps", type=str, default="../../corpora/ch1_RoS/ch1_RoS_edited.txt",
+    parser.add_argument("--crps", type=str, default="/home/cta/ghostses/corpora/ch1_RoS/ch1_RoS_edited.txt",
                         help="the corpus")
     parser.add_argument("--ws", type=bool, default=False,
                         help="preserve whitespace")
